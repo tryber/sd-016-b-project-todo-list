@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pi-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Todo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento" >Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+
+  <!-- Onde a nova tarefa sera digitada -->
+  <input type="text" id="texto-tarefa" placeholder="Digite aqui a nova tarefa">
+
+  <!-- Botão para adicionar as tarefas -->
+  <button id="criar-tarefa">adicionar</button>
+
+  <!-- ficara a lista de tarefas do usuario -->
+  <ol id="lista-tarefas">
+
+  </ol>
+
+  <!-- Botão para apagar tudo -->
+  <button id="apaga-tudo">Limpar lista</button>
+
+  <!-- Limpar tarefas marcadas -->
+  <button id="remover-finalizados">Remover finalizados</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
