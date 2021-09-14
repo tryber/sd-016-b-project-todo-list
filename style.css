@@ -1,0 +1,16 @@
+#texto-tarefa {
+  background-color: aquamarine;
+}
+
+#criar-tarefa {
+  width: 80px;
+  height: 20px;
+}
+
+#lista-tarefas {
+  margin: 0;
+}
+
+.completed {
+  text-decoration: line-through  solid  black;
+}
