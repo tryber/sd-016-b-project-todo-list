@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/fa866efc1f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+        <main >
+            <div id="container"> 
+                <header><h1>Minha Lista de Tarefas</h1> </header>
+                <article>
+                    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+                    <input type="text" id="texto-tarefa" placeholder="Digite a sua tarefa">
+                    <button id="criar-tarefa" class="blue">Adicionar</button>
+                    <ol id="lista-tarefas"></ol>
+                    <button id="remover-selecionado" class="far fa-trash-alt icon"></button>
+                    <button id="mover-cima" class="fas fa-arrow-up icon"></button>
+                    <button id="mover-baixo" class="fas fa-arrow-down icon"></button>
+                    <button id="remover-finalizados" class="light-orange">Excluir completas</button>
+                    <button id="apaga-tudo" class="light-orange">Excluir tudo</button>
+                    <button id="salvar-tarefas" class="blue">Salvar tarefas</button>
+                </article>
+            </div>
+        </main>
+
+    <footer>Desenvolvido por <em><a href="https://julianesilvac75.github.io/">Juliane Cardoso</a> </em> &#128155;</footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
