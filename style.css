@@ -1,0 +1,17 @@
+#criar-tarefa {
+  background: blueviolet;
+  border-radius: 25px;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
+.corCinza {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
