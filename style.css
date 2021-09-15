@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(105 , 94 , 249);
+  font-family: sans-serif;
+  font-size: 1.8rem;
+}
+
+.main__content {
+  width: 84rem;
+  margin: 9rem auto;
+  background-color: rgb(230 , 228 , 219);
+  height: 58.7rem;
+  border-radius: 1.5rem;
+}
+
+.title__principal {
+  font-size: 4.7rem;
+  color: rgb(131 , 122 , 255);
+  padding-top: 2rem;
+  padding-left: 3.8rem;
+  letter-spacing: 1rem;
+  font-family: Bebas Neue, cursive;
+}
+
+.parHeader {
+  font-size: 1.8rem;
+  padding-left: 3.8rem;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  color: rgb(173 , 151 , 31);
+}
+
+#texto-tarefa {
+  font-size: 1.8rem;
+  width: 32rem;
+}
+
+.input__content {
+  padding-left: 3.8rem;
+  padding-top: 2rem;
+}
+
+#criar-tarefa {
+  margin-left: 2rem;
+  font-size: 1.8rem;
+  padding: 5px 1rem;
+}
+
+#lista-tarefas {
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+#lista-tarefas li {
+  padding-top: 1rem;
+  color: rgb(57 , 49 , 173);
+}
+
+#lista-tarefas li:hover {
+  cursor: pointer;
+}
+
+#lista-tarefas:last-child {
+  padding-bottom: 3rem;
+}
+
+button {
+  font-size: 1.8rem;
+  padding: 5px 1rem;
+  background-color: rgb(154 , 148 , 240);
+  border-radius: 10px;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(82 , 72 , 228);
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+#remover-selecionado {
+  background-color: rgb(243 , 132 , 132);
+}
+
+#remover-selecionado:hover {
+  background-color: rgb(253 , 63 , 63);
+}
+
+#mover-cima , #mover-baixo {
+  background-color: rgb(250 , 226 , 95);
+}
+
+#mover-cima:hover , #mover-baixo:hover {
+  background-color: rgb(148 , 133 , 45);
+}
