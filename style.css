@@ -1,0 +1,16 @@
+.header {
+    background-color: cornsilk;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.tarefa-colorida {
+    background-color: rgb(128, 128, 128);
+}
