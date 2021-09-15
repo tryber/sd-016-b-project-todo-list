@@ -1,0 +1,11 @@
+.list {
+  background-color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  margin: 3px;
+}
