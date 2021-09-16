@@ -1,4 +1,4 @@
-//criar uma li
+// criar uma li
 const todoText = document.getElementById('texto-tarefa');
 const createButton = document.getElementById('criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
@@ -13,7 +13,7 @@ function createTodo() {
 
 createButton.addEventListener('click', createTodo);
 
-//selecionar li
+// selecionar li
 let liTarget = '';
 
 function selectedLi(event) {
@@ -26,7 +26,7 @@ function selectedLi(event) {
 
 todoList.addEventListener('click', selectedLi);
 
-//tarefa completa
+// tarefa completa
 function completTask() {
   if (liTarget.className === 'completed') {
     liTarget.classList.remove('completed');
@@ -37,7 +37,7 @@ function completTask() {
 
 todoList.addEventListener('dblclick', completTask);
 
-//limpar todas as tasks
+// limpar todas as tasks
 const cleanButton = document.getElementById('apaga-tudo');
 
 function cleanAllTasks() {
@@ -48,7 +48,7 @@ function cleanAllTasks() {
 
 cleanButton.addEventListener('click', cleanAllTasks);
 
-//limpar tasks finalizadas
+// limpar tasks finalizadas
 const finishTasks = document.getElementById('remover-finalizados');
 const completList = [];
 
@@ -64,3 +64,12 @@ function cleanCompleted() {
 }
 
 finishTasks.addEventListener('click', cleanCompleted);
+
+// remover selecionado
+const buttonRemove = document.getElementById('remover-selecionado');
+
+function removeSelected() {
+  liTarget.remove();
+}
+
+buttonRemove.addEventListener('click', removeSelected)
