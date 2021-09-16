@@ -65,11 +65,40 @@ function cleanCompleted() {
 
 finishTasks.addEventListener('click', cleanCompleted);
 
+// salvar tarefas no navegador
+const localItem = [];
+const saveButton = document.getElementById('salvar-tarefas');
+
+function saveItem() {
+  for (let index = 0; index < taskLi.length; index += 1) {
+    localItem.push(taskLi[index]);
+    localStorage.setItem(`task-${index}`, localItem[index].innerText);
+  }
+}
+
+saveButton.addEventListener('click', saveItem)
+// salvar array com class para o value do localsotrage 
+window.onload = function() { // nao funcionando como planejado
+  if (localStorage.length > 0) {
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const createLi = document.createElement('li');  
+      todoList.appendChild(createLi).innerText = localStorage.getItem(`task-${index}`);
+    }
+  }
+}
+
+// mover tarefas
+// bigwedge - bigvee
+
+
 // remover selecionado
 const buttonRemove = document.getElementById('remover-selecionado');
 
 function removeSelected() {
+  if (todoList.children.length > 0)
   liTarget.remove();
+  const localKey = localStorage.key(liTarget);
+  localStorage.removeItem(localKey)
 }
 
 buttonRemove.addEventListener('click', removeSelected)
