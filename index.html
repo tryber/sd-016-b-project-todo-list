@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto To Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+  </header>
+
+  <main>
+    <section>
+      <input id="texto-tarefa" type="text">
+      <button id="criar-tarefa">Nova tarefa</button>
+    </section>
+    <section class="sectionList">
+      <ol id="lista-tarefas">
+      </ol>
+    </section>
+    <section>
+      <fieldset class="buttons">
+        <button id="remover-selecionado">×</button>
+        <button id="mover-cima">⇑</button>
+        <button id="mover-baixo">⇓</button>
+        <button id="remover-finalizados">Limpar tarefas finalizadas</button>
+        <button id="apaga-tudo">Limpar Lista</button>
+        <button id="salvar-tarefas">Salvar Lista</button>
+      </fieldset>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

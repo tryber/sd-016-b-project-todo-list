@@ -1,0 +1,18 @@
+#selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.buttons {
+  border-radius: 2px;
+  padding: 2px;
+  text-align: center;
+  width: 50%;
+}
+
+.buttons fieldset {
+  border-radius: 5px;
+}
