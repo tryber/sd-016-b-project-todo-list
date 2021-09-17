@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 4px;
+}
+
+.active-task {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+#funcionamento {
+  margin-top: 10px;
+}
+
+#lista-tarefas {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+#lista-tarefas li {
+  margin-top: 10px;
+}
+
+#texto-tarefa {
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 4px;
+}
+
+#salvar-tarefas {
+  margin: 0;
+}
