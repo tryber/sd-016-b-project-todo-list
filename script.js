@@ -89,7 +89,7 @@ function selectTask(event) {
 }
 
 function completeTask(event) {
-  addClass(event.target, 'completed');
+  toggleClass(event.target, 'completed');
 }
 
 function taskEvents(event) {
