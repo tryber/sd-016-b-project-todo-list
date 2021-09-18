@@ -175,7 +175,9 @@ function deleteClassBased(className) {
 }
 
 function deleteDoneTasks() {
-  deleteClassBased('complete');
+  for (let i in user.allTasks) {
+    deleteClassBased('complete');
+  }
 }
 
 function buttonDeleteDone() {
