@@ -1,0 +1,7 @@
+.selected{
+    background-color: 'grey';
+}
+
+.check{
+    text-decoration: line-through;
+}
