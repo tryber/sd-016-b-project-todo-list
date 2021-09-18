@@ -163,10 +163,10 @@ function buttonDeleteAll() {
   staticElements.buttonDeleteAll.addEventListener('click', deleteAllTasks);
 }
 
-function deleteDoneTasks() {
+function deleteClassBased(className) {
   user.allTasks.forEach((task) => {
     const taskClass = task.classList.toString();
-    if (taskClass.includes('completed')) {
+    if (taskClass.includes(className)) {
       const removeIndex = user.allTasks.indexOf(task);
       user.allTasks.splice(removeIndex, 1);
       task.remove();
@@ -174,12 +174,16 @@ function deleteDoneTasks() {
   });
 }
 
+function deleteDoneTasks() {
+  deleteClassBased('complete');
+}
+
 function buttonDeleteDone() {
   staticElements.buttonDeleteDone.addEventListener('click', deleteDoneTasks);
 }
 
 function deleteSelectedTask() {
-  getOne('.selected').remove();
+  deleteClassBased('selected');
 }
 
 function buttonDeleteSelected() {
