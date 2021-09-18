@@ -164,13 +164,15 @@ function buttonDeleteAll() {
 }
 
 function saveTaskClassPosition(className) {
-  let taskClassPosition = 0;
+  let taskClassPosition = '';
+
   user.allTasks.forEach((task) => {
     const taskClass = task.classList.toString();
     if (taskClass.includes(className)) {
       taskClassPosition = user.allTasks.indexOf(task);
     }
   });
+
   return taskClassPosition;
 }
 
@@ -202,7 +204,7 @@ function moveUp() {
   const initialPos = saveTaskClassPosition('selected');
   const tempArr = [...user.allTasks];
 
-  if (initialPos > 0) {
+  if (initialPos > 0 && initialPos !== '') {
     [user.allTasks[initialPos]] = [tempArr[initialPos - 1]];
     [user.allTasks[initialPos - 1]] = [tempArr[initialPos]];
     renderTask();
@@ -217,7 +219,7 @@ function moveDown() {
   const initialPos = saveTaskClassPosition('selected');
   const tempArr = [...user.allTasks];
 
-  if (initialPos < user.allTasks.length - 1) {
+  if (initialPos < user.allTasks.length - 1 && initialPos !== '') {
     [user.allTasks[initialPos]] = [tempArr[initialPos + 1]];
     [user.allTasks[initialPos + 1]] = [tempArr[initialPos]];
     renderTask();
