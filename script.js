@@ -77,6 +77,21 @@ const staticElements = {
 
 // functions for the project
 
+function selectTask(event) {
+  addClass(event.target, 'selected');
+}
+
+function taskEvents(event) {
+  event.type !== 'dblclick' ? selectTask(event) : completeTask(event);
+}
+
+function lintenTaskItem() {
+  const allTasks = getAll('li');
+  if (allTasks.length > 0) {
+    addMultiplesEventsAndListeners(allTasks, 'click dblclick', taskEvents);
+  }
+}
+
 function getTaskContent(event) {
   user.taskContent = event.target.value;
 }
@@ -105,6 +120,7 @@ function renderTask() {
   user.allTasks.forEach((task)=> {
     plugHtml(staticElements.taskList, task);
   });
+  lintenTaskItem();
 }
 
 function resetInput() {
