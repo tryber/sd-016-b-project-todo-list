@@ -32,6 +32,14 @@ function removeOfHtml(fatherElement, sonElement) {
   fatherElement.removeChild(sonElement);
 }
 
+function addMultiplesEvents(element, eventsName, listener) {
+  const events = eventsName.split(' ');
+
+  events.forEach((event) => {
+    element.addEventListener(event, listener, false);
+  });
+}
+
 function addMultiplesListeners(arr, eventName, listener) {
   arr.forEach((element) => {
     element.addEventListener(eventName, listener, false);
@@ -93,7 +101,12 @@ function renderTask() {
   });
 }
 
+function resetInput() {
+  staticElements.inputTextTask.value = '';
+}
+
 function taskCreation() {
+  resetInput();
   createTask();
   renderTask();
 }
