@@ -127,6 +127,10 @@ function resetTaskList() {
   });
 }
 
+function resetAllTasks() {
+  user.allTasks.length = 0;
+}
+
 function renderTask() {
   user.allTasks.forEach((task)=> {
     plugHtml(staticElements.taskList, task);
@@ -151,7 +155,7 @@ function buttonCreateTask() {
 
 function deleteAllTasks() {
   resetTaskList();
-  user.allTasks.length = 0;
+  resetAllTasks();
   renderTask();
 }
 
@@ -163,6 +167,8 @@ function deleteDoneTasks() {
   user.allTasks.forEach((task) => {
     const taskClass = task.classList.toString();
     if (taskClass.includes('completed')) {
+      const removeIndex = user.allTasks.indexOf(task);
+      user.allTasks.splice(removeIndex, 1);
       task.remove();
     }
   });
