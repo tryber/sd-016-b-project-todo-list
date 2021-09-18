@@ -51,7 +51,8 @@ function addMultiplesEventsAndListeners(arr, eventsName, listener) {
 // global variables
 
 const user = {
-  msg: '',
+  taskContent: '',
+  allTasks: [],
 };
 
 const staticElements = {
@@ -68,3 +69,40 @@ const staticElements = {
 
 // functions for the project
 
+function getTaskContent(event) {
+  user.taskContent = event.target.value;
+}
+
+function taskListInput() {
+  staticElements.inputTextTask.addEventListener('keyup', getTaskContent);
+}
+
+function saveTask(taskItem) {
+  user.allTasks.push(taskItem);
+}
+
+function createTask() {
+  const newTask = createElement('li');
+  newTask.innerText = user.taskContent;
+  saveTask(newTask);
+}
+
+function renderTask() {
+  user.allTasks.forEach((task)=> {
+    plugHtml(staticElements.taskList, task);
+  });
+}
+
+function taskCreation() {
+  createTask();
+  renderTask();
+}
+
+function buttonCreateTask() {
+  staticElements.buttonCreateTask.addEventListener('click', taskCreation)
+}
+
+window.onload = () => {
+  taskListInput();
+  buttonCreateTask();
+};
