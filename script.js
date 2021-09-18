@@ -172,9 +172,18 @@ function buttonDeleteDone() {
   staticElements.buttonDeleteDone.addEventListener('click', deleteDoneTasks);
 }
 
+function deleteSelectedTask() {
+  getOne('.selected').remove();
+}
+
+function buttonDeleteSelected() {
+  staticElements.buttonDeleteSelected.addEventListener('click', deleteSelectedTask);
+}
+
 window.onload = () => {
   taskListInput();
   buttonCreateTask();
   buttonDeleteAll();
   buttonDeleteDone();
+  buttonDeleteSelected();
 };
