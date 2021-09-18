@@ -192,10 +192,53 @@ function buttonDeleteSelected() {
   staticElements.buttonDeleteSelected.addEventListener('click', deleteSelectedTask);
 }
 
+function saveTaskPosition() {
+  let selectTask = 0;
+  user.allTasks.forEach((task) => {
+    const taskClass = task.classList.toString();
+    if (taskClass.includes('selected')) {
+      selectTask = user.allTasks.indexOf(task);
+    }
+  });
+  return selectTask;
+}
+
+function moveUp() {
+  const initialPos = saveTaskPosition();
+  const tempArr = [...user.allTasks];
+
+  if (initialPos > 0) {
+    [user.allTasks[initialPos]] = [tempArr[initialPos - 1]];
+    [user.allTasks[initialPos - 1]] = [tempArr[initialPos]];
+    renderTask();
+  }
+}
+
+function buttonMoveUp() {
+  staticElements.buttonMoveUp.addEventListener('click', moveUp);
+}
+
+function moveDown() {
+  const initialPos = saveTaskPosition();
+  const tempArr = [...user.allTasks];
+
+  if (initialPos < user.allTasks.length - 1) {
+    [user.allTasks[initialPos]] = [tempArr[initialPos + 1]];
+    [user.allTasks[initialPos + 1]] = [tempArr[initialPos]];
+    renderTask();
+  }
+}
+
+function buttonMoveDown() {
+  staticElements.buttonMoveDown.addEventListener('click', moveDown);
+}
+
 window.onload = () => {
   taskListInput();
   buttonCreateTask();
   buttonDeleteAll();
   buttonDeleteDone();
   buttonDeleteSelected();
+  buttonMoveUp();
+  buttonMoveDown();
 };
