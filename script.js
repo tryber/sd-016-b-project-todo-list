@@ -77,7 +77,14 @@ const staticElements = {
 
 // functions for the project
 
+function resetTaskSelection() {
+  user.allTasks.forEach((task) => {
+    removeClass(task, 'selected');
+  });
+}
+
 function selectTask(event) {
+  resetTaskSelection();
   addClass(event.target, 'selected');
 }
 
