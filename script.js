@@ -81,6 +81,10 @@ function selectTask(event) {
   addClass(event.target, 'selected');
 }
 
+function completeTask(event) {
+  addClass(event.target, 'completed');
+}
+
 function taskEvents(event) {
   event.type !== 'dblclick' ? selectTask(event) : completeTask(event);
 }
