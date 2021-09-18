@@ -159,8 +159,22 @@ function buttonDeleteAll() {
   staticElements.buttonDeleteAll.addEventListener('click', deleteAllTasks);
 }
 
+function deleteDoneTasks() {
+  user.allTasks.forEach((task) => {
+    const taskClass = task.classList.toString();
+    if (taskClass.includes('completed')) {
+      task.remove();
+    }
+  });
+}
+
+function buttonDeleteDone() {
+  staticElements.buttonDeleteDone.addEventListener('click', deleteDoneTasks);
+}
+
 window.onload = () => {
   taskListInput();
   buttonCreateTask();
   buttonDeleteAll();
+  buttonDeleteDone();
 };
