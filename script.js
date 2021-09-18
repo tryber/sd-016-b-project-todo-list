@@ -95,6 +95,12 @@ function createTask() {
   saveTask(newTask);
 }
 
+function resetTaskList() {
+  user.allTasks.forEach((task)=> {
+    task.remove();
+  });
+}
+
 function renderTask() {
   user.allTasks.forEach((task)=> {
     plugHtml(staticElements.taskList, task);
@@ -108,6 +114,7 @@ function resetInput() {
 function taskCreation() {
   resetInput();
   createTask();
+  resetTaskList();
   renderTask();
 }
 
@@ -115,7 +122,18 @@ function buttonCreateTask() {
   staticElements.buttonCreateTask.addEventListener('click', taskCreation)
 }
 
+function deleteAllTasks() {
+  resetTaskList();
+  user.allTasks.length = 0;
+  renderTask();
+}
+
+function buttonDeleteAll() {
+  staticElements.buttonDeleteAll.addEventListener('click', deleteAllTasks);
+}
+
 window.onload = () => {
   taskListInput();
   buttonCreateTask();
+  buttonDeleteAll();
 };
