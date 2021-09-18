@@ -1,0 +1,40 @@
+body {
+  
+}
+
+header {
+
+}
+
+p {
+
+}
+
+input {
+
+}
+
+ol {
+
+}
+
+li {
+
+}
+
+button {
+  width: 100px;
+  height: 50px;
+}
+
+a {
+  /* background-color: blueviolet; */
+}
+
+.selected {
+  /* background-color: rgb(128,128,128); */
+}
+
+.completed {
+  /* text-decoration: line-through solid rgb(0, 0, 0); */
+}
