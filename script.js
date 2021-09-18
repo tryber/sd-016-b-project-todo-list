@@ -163,15 +163,21 @@ function buttonDeleteAll() {
   staticElements.buttonDeleteAll.addEventListener('click', deleteAllTasks);
 }
 
-function deleteClassBased(className) {
+function saveTaskClassPosition(className) {
+  let taskClassPosition = 0;
   user.allTasks.forEach((task) => {
     const taskClass = task.classList.toString();
     if (taskClass.includes(className)) {
-      const removeIndex = user.allTasks.indexOf(task);
-      user.allTasks.splice(removeIndex, 1);
-      task.remove();
+      taskClassPosition = user.allTasks.indexOf(task);
     }
   });
+  return taskClassPosition;
+}
+
+function deleteClassBased(className) {
+  const removeIndex = saveTaskClassPosition(className);
+  user.allTasks[removeIndex].remove();
+  user.allTasks.splice(removeIndex, 1);
 }
 
 function deleteDoneTasks() {
@@ -192,19 +198,8 @@ function buttonDeleteSelected() {
   staticElements.buttonDeleteSelected.addEventListener('click', deleteSelectedTask);
 }
 
-function saveTaskPosition() {
-  let selectTask = 0;
-  user.allTasks.forEach((task) => {
-    const taskClass = task.classList.toString();
-    if (taskClass.includes('selected')) {
-      selectTask = user.allTasks.indexOf(task);
-    }
-  });
-  return selectTask;
-}
-
 function moveUp() {
-  const initialPos = saveTaskPosition();
+  const initialPos = saveTaskClassPosition('selected');
   const tempArr = [...user.allTasks];
 
   if (initialPos > 0) {
@@ -219,7 +214,7 @@ function buttonMoveUp() {
 }
 
 function moveDown() {
-  const initialPos = saveTaskPosition();
+  const initialPos = saveTaskClassPosition('selected');
   const tempArr = [...user.allTasks];
 
   if (initialPos < user.allTasks.length - 1) {
