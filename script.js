@@ -71,6 +71,22 @@ function apagaTudo() {
 }
 
 apagaTudo();
+
+function apagaFinalizados() {
+  const btnApagaFinalizados = document.querySelector('#remover-finalizados');
+  const tarefasFinalizadas = document.getElementsByClassName('completed');
+
+  function excluiFinalizados() {
+    while (tarefasFinalizadas.length > 0) {
+      listaTarefas.removeChild(tarefasFinalizadas[0]);
+    }
+  }
+  btnApagaFinalizados.addEventListener('click', excluiFinalizados);
+}
+
+apagaFinalizados();
+
 /* Links utilizados durante a construção do projeto:
  - https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
- - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ */
+ - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+ - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/do...while */

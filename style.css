@@ -6,19 +6,15 @@ h1 {
   margin-bottom: -5px;
 }
 
+button {
+  font-family: monospace;
+}
+
 #texto-tarefa {
   width: 240px;
   font-family: monospace;
 }
 
-#criar-tarefa {
-  font-family: monospace;
-}
-
 .completed {
   text-decoration: line-through solid black;
-}
-
-#apaga-tudo{
-  font-family: monospace;
 }
