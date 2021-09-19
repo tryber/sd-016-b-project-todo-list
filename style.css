@@ -1,7 +1,3 @@
-.selected{
-    background-color: 'grey';
-}
-
-.check{
+.completed{
     text-decoration: line-through;
 }
