@@ -33,14 +33,17 @@ const apagaTarefasButton = document.querySelector('#apaga-tudo');
 apagaTarefasButton.addEventListener('click', apagaTudo);
 
 function apagaSelecionadas() {
+  const lista = document.querySelector('#lista-tarefas');
   const tarefasRiscadas = document.querySelectorAll('.completed');
-  while (tarefasRiscadas.length > 0) {
-    tarefasRiscadas[0].parentNode.removeChild(tarefasRiscadas[0]); // é necessário acessar os objetos do acesso qsALL criados, para que as li's possam ser apagadas através de seus nós. Desenvolvido com a ajuda dos colegas Airton Lopes e Luiz Wanderson
+  for (let i = 0; i < tarefasRiscadas.length; i += 1) {
+    lista.removeChild(tarefasRiscadas[i]);
   }
 }
 
 const apagaSel = document.querySelector('#remover-finalizados');
 apagaSel.addEventListener('click', apagaSelecionadas);
+
+// percorre todos os elementos do objeto da classe .completed, e acessando eles através da lista de tarefas (ol) ele localiza apagando os filhos que possuem a classe completed. Desenvolvido com a ajuda dos colegas Airton Lopes e Luiz Wanderson
 
 const criarTarefa = (evento) => {
   evento.preventDefault(); // previne o comportamento padrão
