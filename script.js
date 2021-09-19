@@ -3,7 +3,8 @@ const todoInput = document.getElementById('texto-tarefa')
 const todoButton = document.getElementById('criar-tarefa')
 const todoList = document.getElementById('lista-tarefas')
 const deleteButton = document.getElementById('apaga-tudo')
-
+const finishedItens = document.querySelectorAll('.completed')
+const clearFinishedItensButton = document.querySelector('#remover-finalizados')
 
 
 
@@ -11,12 +12,27 @@ const deleteButton = document.getElementById('apaga-tudo')
 todoButton.addEventListener('click', addTodo);
 deleteButton.addEventListener('click', deleteAll);
 // newTodo.addEventListener('dblclick', pintarDeCinza)
+clearFinishedItensButton.addEventListener('click', deleteFinishedItens);
+
 
 
 
 //FUNCTIONS
+function deleteFinishedItens() {
+  const todoItens = document.querySelectorAll('.todo-item')
+
+  todoItens.forEach((item) => {
+    if (item.classList.contains('completed')) item.remove();
+  })
+
+  // finishedItens.innerHTML = '';
+  // console.log(finishedItens);
+}
+
+
+
 function addTodo(event) {
-  //Prevent form from submitting
+  //Prevent form from submitting - Vi essa ideia no Youtube
   event.preventDefault();
 
   //Criando um ITEM NA LISTA - li
@@ -64,7 +80,7 @@ function addTodo(event) {
 
 
 
-function deleteAll(e) {
+function deleteAll() {
   // const item = e.target;
   //Deletando todos os itens
   todoList.innerHTML = ' '; //Selecionar os "li" que estao sendo criados.
