@@ -20,6 +20,28 @@ function riscaTarefa(evento) {
   }
 }
 
+// enquanto houver elementos filhos do pai lista-tarefas, ao clicar o botão, apagar todos os filhos.
+
+function apagaTudo() {
+  const listaTarefas = document.querySelector('#lista-tarefas');
+  while (listaTarefas.firstElementChild) {
+    listaTarefas.removeChild(listaTarefas.firstElementChild);
+  }
+}
+
+const apagaTarefasButton = document.querySelector('#apaga-tudo');
+apagaTarefasButton.addEventListener('click', apagaTudo);
+
+function apagaSelecionadas() {
+  const tarefasRiscadas = document.querySelectorAll('.completed');
+  while (tarefasRiscadas.length > 0) {
+    tarefasRiscadas[0].parentNode.removeChild(tarefasRiscadas[0]); // é necessário acessar os objetos do acesso qsALL criados, para que as li's possam ser apagadas através de seus nós. Desenvolvido com a ajuda dos colegas Airton Lopes e Luiz Wanderson
+  }
+}
+
+const apagaSel = document.querySelector('#remover-finalizados');
+apagaSel.addEventListener('click', apagaSelecionadas);
+
 const criarTarefa = (evento) => {
   evento.preventDefault(); // previne o comportamento padrão
   const lista = document.querySelector('#lista-tarefas');
