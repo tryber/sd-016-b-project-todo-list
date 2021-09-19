@@ -6,6 +6,7 @@ const deleteButton = document.getElementById('apaga-tudo')
 const finishedItens = document.querySelectorAll('.completed')
 const clearFinishedItensButton = document.querySelector('#remover-finalizados')
 const deleteSelectedButton = document.querySelector('#remover-selecionado')
+const saveButton = document.querySelector('#salvar-tarefas')
 
 
 
@@ -15,9 +16,15 @@ deleteButton.addEventListener('click', deleteAll);
 // newTodo.addEventListener('dblclick', pintarDeCinza)
 clearFinishedItensButton.addEventListener('click', deleteFinishedItens);
 deleteSelectedButton.addEventListener('click', deleteSelectedItem)
+saveButton.addEventListener('click', saveTodoList)
 
 
 //FUNCTIONS
+function saveTodoList() {
+  const savedItem = localStorage.getItem('.todo-item')
+}
+
+
 function deleteSelectedItem() {
   const selectedItem = document.querySelector('.pintarDeCinza')
   if (selectedItem.classList.contains('pintarDeCinza')) selectedItem.remove()
