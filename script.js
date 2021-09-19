@@ -47,7 +47,6 @@ function selecionaItem() {
 
 selecionaItem();
 
-const itemFinalizado = document.querySelector('#lista-tarefas');
 function riscaFinalizado() {
   function risca(event) {
     const alvo = event.target;
@@ -57,6 +56,21 @@ function riscaFinalizado() {
       alvo.className += ' completed';
     }
   }
-  itemFinalizado.addEventListener('dblclick', risca);
+  listaTarefas.addEventListener('dblclick', risca);
 }
 riscaFinalizado();
+
+function apagaTudo() {
+  const btnApagaTudo = document.querySelector('#apaga-tudo');
+  function excluiTudo() {
+    while (listaTarefas.firstChild) {
+      listaTarefas.removeChild(listaTarefas.firstChild);
+    }
+  }
+  btnApagaTudo.addEventListener('click', excluiTudo);
+}
+
+apagaTudo();
+/* Links utilizados durante a construção do projeto:
+ - https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+ - https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ */
