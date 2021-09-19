@@ -7,7 +7,6 @@ const rmvFinalizado = document.getElementById('remover-finalizados');
 // const moverCima = document.getElementById('mover-cima');
 // const moverBaixo = document.getElementById('mover-baixo');
 
-
 criarTarefas.addEventListener('click', () => {
   const itemLista = document.createElement('li');
   const text = textoTarefas.value;
