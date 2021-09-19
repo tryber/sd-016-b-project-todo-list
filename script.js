@@ -230,6 +230,26 @@ function buttonMoveDown() {
   staticElements.buttonMoveDown.addEventListener('click', moveDown);
 }
 
+function getAllTasks() {
+  return JSON.stringify(staticElements.taskList.innerHTML);
+}
+
+function saveLocalStorage() {
+  localStorage.setItem('task', getAllTasks());
+}
+
+function buttonSave() {
+  staticElements.buttonSave.addEventListener('click', saveLocalStorage);
+}
+
+function renderSaveTasks() {
+  const storageTasks = JSON.parse(localStorage.getItem('task'));
+  staticElements.taskList.innerHTML = storageTasks;
+  getAll('li').forEach((task) => {
+    saveTask(task);
+  });
+}
+
 window.onload = () => {
   taskListInput();
   buttonCreateTask();
@@ -238,4 +258,6 @@ window.onload = () => {
   buttonDeleteSelected();
   buttonMoveUp();
   buttonMoveDown();
+  buttonSave();
+  renderSaveTasks();
 };
