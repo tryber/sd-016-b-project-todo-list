@@ -18,3 +18,17 @@ function criaTarefas() {
   btnAdcionar.addEventListener('click', adcTarefa);
 }
 criaTarefas();
+
+function mudaCorItem() {
+  const itemTarefa = document.querySelector('#lista-tarefas');
+  const novaCor = 'rgb(128, 128, 128)';
+
+  function mudaCorClick(event) {
+    const evento = event.target;
+    evento.style.backgroundColor = novaCor;
+  }
+
+  itemTarefa.addEventListener('click', mudaCorClick);
+}
+
+mudaCorItem();
