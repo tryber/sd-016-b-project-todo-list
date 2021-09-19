@@ -24,16 +24,29 @@ function addTodo(event) {
   newTodo.innerText = todoInput.value;
   newTodo.classList.add('todo-item');
 
-  // PInta de cinza o item clicado
+  // Pinta de cinza o item clicado
   newTodo.addEventListener('click', pintarDeCinza)
 
   function pintarDeCinza(e) {
-    let newTodo = e.target;
-    newTodo.classList.toggle('pintarDeCinza');
+    const todoItens = document.querySelectorAll('.todo-item')
+    todoItens.forEach((todoItem) => {
+      todoItem.classList.remove('pintarDeCinza')
+    })
+
+    const currentElement = e.target
+    currentElement.classList.add('pintarDeCinza')
+
+    // const selectedElement = document.querySelector('.pintarDeCinza')
+    // selectedElement.classList.remove('pintarDeCinza')
+
+    // let newTodo = e.target;
+    // newTodo.classList.add('pintarDeCinza');
   }
 
   //Adiciona risco no item clicando duas vezes
   newTodo.addEventListener('dblclick', itemRiscado)
+
+
 
   function itemRiscado() {
     newTodo.classList.toggle('completed')
@@ -48,6 +61,8 @@ function addTodo(event) {
   // Limpar o Input depois de criar um item
   todoInput.value = '';
 }
+
+
 
 function deleteAll(e) {
   // const item = e.target;
