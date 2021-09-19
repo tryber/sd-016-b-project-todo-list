@@ -21,11 +21,10 @@ function riscaTarefa(evento) {
 }
 
 // enquanto houver elementos filhos do pai lista-tarefas, ao clicar o botão, apagar todos os filhos.
-
+const lista = document.querySelector('#lista-tarefas');
 function apagaTudo() {
-  const listaTarefas = document.querySelector('#lista-tarefas');
-  while (listaTarefas.firstElementChild) {
-    listaTarefas.removeChild(listaTarefas.firstElementChild);
+  while (lista.firstElementChild) {
+    lista.removeChild(lista.firstElementChild);
   }
 }
 
@@ -33,7 +32,6 @@ const apagaTarefasButton = document.querySelector('#apaga-tudo');
 apagaTarefasButton.addEventListener('click', apagaTudo);
 
 function apagaSelecionadas() {
-  const lista = document.querySelector('#lista-tarefas');
   const tarefasRiscadas = document.querySelectorAll('.completed');
   for (let i = 0; i < tarefasRiscadas.length; i += 1) {
     lista.removeChild(tarefasRiscadas[i]);
@@ -47,7 +45,6 @@ apagaSel.addEventListener('click', apagaSelecionadas);
 
 const criarTarefa = (evento) => {
   evento.preventDefault(); // previne o comportamento padrão
-  const lista = document.querySelector('#lista-tarefas');
   const tarefas = document.querySelector('#texto-tarefa');
   const valor = tarefas.value;
   const addTarefa = document.createElement('li');
