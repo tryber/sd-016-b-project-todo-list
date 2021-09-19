@@ -1,7 +1,8 @@
+const listaTarefas = document.querySelector('#lista-tarefas');
+
 function criaTarefas() {
   const inputTarefa = document.querySelector('#texto-tarefa');
   const btnAdcionar = document.querySelector('#criar-tarefa');
-  const listaTarefas = document.querySelector('#lista-tarefas');
 
   function adcTarefa() {
     if (inputTarefa.value !== 0) {
@@ -22,22 +23,40 @@ criaTarefas();
 function limpaSelecionado() {
   const limpaClasse = document.querySelector('.selected');
   if (limpaClasse !== null) {
-    limpaClasse.removeAttribute('style');
-    limpaClasse.className = 'tarefa';
+    if (limpaClasse.className.includes('completed')) {
+      limpaClasse.style.backgroundColor = '';
+      limpaClasse.className = 'tarefa completed';
+    } else {
+      limpaClasse.style.backgroundColor = '';
+      limpaClasse.className = 'tarefa';
+    }
   }
 }
 
-function mudaCorItem() {
-  const itemTarefa = document.querySelector('#lista-tarefas');
+function selecionaItem() {
   const novaCor = 'rgb(128, 128, 128)';
 
   function mudaCorClick(event) {
     const evento = event.target;
     evento.style.backgroundColor = novaCor;
-    evento.className = 'tarefa selected';
+    evento.className += ' selected';
   }
-  itemTarefa.addEventListener('click', limpaSelecionado);
-  itemTarefa.addEventListener('click', mudaCorClick);
+  listaTarefas.addEventListener('click', limpaSelecionado);
+  listaTarefas.addEventListener('click', mudaCorClick);
 }
 
-mudaCorItem();
+selecionaItem();
+
+const itemFinalizado = document.querySelector('#lista-tarefas');
+function riscaFinalizado() {
+  function risca(event) {
+    const alvo = event.target;
+    if (alvo.classList.contains('completed')) {
+      alvo.classList.remove('completed');
+    } else {
+      alvo.className += ' completed';
+    }
+  }
+  itemFinalizado.addEventListener('dblclick', risca);
+}
+riscaFinalizado();

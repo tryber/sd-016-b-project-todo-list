@@ -14,3 +14,7 @@ h1 {
 #criar-tarefa {
   font-family: monospace;
 }
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
