@@ -19,6 +19,14 @@ function criaTarefas() {
 }
 criaTarefas();
 
+function limpaSelecionado() {
+  const limpaClasse = document.querySelector('.selected');
+  if (limpaClasse !== null) {
+    limpaClasse.removeAttribute('style');
+    limpaClasse.className = 'tarefa';
+  }
+}
+
 function mudaCorItem() {
   const itemTarefa = document.querySelector('#lista-tarefas');
   const novaCor = 'rgb(128, 128, 128)';
@@ -26,8 +34,9 @@ function mudaCorItem() {
   function mudaCorClick(event) {
     const evento = event.target;
     evento.style.backgroundColor = novaCor;
+    evento.className = 'tarefa selected';
   }
-
+  itemTarefa.addEventListener('click', limpaSelecionado);
   itemTarefa.addEventListener('click', mudaCorClick);
 }
 
