@@ -28,24 +28,6 @@ function plugHtml(fatherElement, sonElement) {
   fatherElement.appendChild(sonElement);
 }
 
-function removeOfHtml(fatherElement, sonElement) {
-  fatherElement.removeChild(sonElement);
-}
-
-function addMultiplesEvents(element, eventsName, listener) {
-  const events = eventsName.split(' ');
-
-  events.forEach((event) => {
-    element.addEventListener(event, listener, false);
-  });
-}
-
-function addMultiplesListeners(arr, eventName, listener) {
-  arr.forEach((element) => {
-    element.addEventListener(eventName, listener, false);
-  });
-}
-
 function addMultiplesEventsAndListeners(arr, eventsName, listener) {
   const events = eventsName.split(' ');
 
@@ -73,7 +55,7 @@ const staticElements = {
   buttonSave: getOne('#salvar-tarefas'),
   buttonMoveUp: getOne('#mover-cima'),
   buttonMoveDown: getOne('#mover-baixo'),
-}
+};
 
 // functions for the project
 
@@ -93,7 +75,11 @@ function completeTask(event) {
 }
 
 function taskEvents(event) {
-  event.type !== 'dblclick' ? selectTask(event) : completeTask(event);
+  if (event.type !== 'dblclick') {
+    selectTask(event);
+  } else {
+    completeTask(event);
+  }
 }
 
 function lintenTaskItem() {
@@ -122,7 +108,7 @@ function createTask() {
 }
 
 function resetTaskList() {
-  user.allTasks.forEach((task)=> {
+  user.allTasks.forEach((task) => {
     task.remove();
   });
 }
@@ -132,7 +118,7 @@ function resetAllTasks() {
 }
 
 function renderTask() {
-  user.allTasks.forEach((task)=> {
+  user.allTasks.forEach((task) => {
     plugHtml(staticElements.taskList, task);
   });
   lintenTaskItem();
@@ -150,7 +136,7 @@ function taskCreation() {
 }
 
 function buttonCreateTask() {
-  staticElements.buttonCreateTask.addEventListener('click', taskCreation)
+  staticElements.buttonCreateTask.addEventListener('click', taskCreation);
 }
 
 function deleteAllTasks() {
@@ -183,7 +169,7 @@ function deleteClassBased(className) {
 }
 
 function deleteDoneTasks() {
-  for (let i in user.allTasks) {
+  for (let i = 0; i < user.allTasks.length; i += 1) {
     deleteClassBased('complete');
   }
 }
