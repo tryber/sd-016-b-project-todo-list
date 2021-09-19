@@ -1,0 +1,61 @@
+body { background-image: url('https://cdn.awsli.com.br/1000x1000/498/498511/produto/85068209/e6c5a12ffa.jpg');}
+
+.head {font-family: Courier New, Courier, monospace;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+  text-decoration: black underline;}
+
+#funcionamento {font-family: Courier New, Courier, monospace;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+}
+
+#texto-tarefa { text-align: center;
+  font-family: Courier New, Courier, monospace;
+  height: 30px;
+  width: 600px;
+  padding: 7px;
+  border: solid black;
+  border-radius: 10px;
+  background-color: rgb(225 , 194 , 243);
+  align-self: center;
+}
+
+li {background-color: rgb(221 , 185 , 255);
+  text-align: center;
+  margin: auto;
+  margin-bottom: 5px;
+  height: 30px;
+  width: 600px;
+  border: solid rgb(44 , 40 , 40) 2px;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: Courier New, Courier, monospace;
+}
+
+.buttons {text-align: center;
+  justify-content: space-around;
+  height: 30px;
+  display: flex;
+  margin: auto;
+  margin-top: 6px;
+  width: 400px;
+}
+
+.addTarefa {font-family: Courier New, Courier, monospace;
+  background-color: rgb(171 , 117 , 219);}
+
+.tarefaPintada {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
