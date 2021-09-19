@@ -77,10 +77,11 @@ input[type=submit], button[type=submit] {
   
 }
 
+input[type=text]::placeholder { text-transform: uppercase; }
+
 input[type=text] {
   width: 27%;
   font-size: 8pt;
-  text-transform: uppercase;
   border: solid rgb(45, 192, 70) 1px;
   transition: width .5s;
 }
@@ -109,7 +110,6 @@ input[type=text]:focus { width: 37%; transition: width .5s;}
 
 .list ol li {
   font-size: 10pt;
-  text-transform: uppercase;
   cursor: pointer;
   transition: font-size 0.3s;
 }
