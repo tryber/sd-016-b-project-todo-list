@@ -7,16 +7,16 @@ function createTask() {
   newTask.innerText = inputText;
   document.getElementById('texto-tarefa').value = '';
   lista.appendChild(newTask);
+  newTask.addEventListener('click', changeColor);
 }
 
 buttonCreate.addEventListener('click', createTask);
 
-/* function mudarCor(event) {
-    if (document.getElementById('selected') === null) {
-      event.target.id = 'selected';
-    } else {
-      document.getElementById('selected').id = '';
-      event.target.id = 'selected';
-    }
-    novaTarefa.addEventListener('click', mudarCor);
-  } */
+function changeColor(event) {
+  if (document.getElementById('selected') === null) {
+    event.target.id = 'selected';
+  } else {
+    document.getElementById('selected').id = '';
+    event.target.id = 'selected';
+  }
+}
