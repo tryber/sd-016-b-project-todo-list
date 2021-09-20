@@ -25,7 +25,6 @@ addTaskClick();
 
 // Requisito 7 e 8
 const listOfTasks = document.getElementById('lista-tarefas');
-let targetEvent = '';
 
 function removeIdSelected () {
     const elementsLi = listOfTasks.children;
@@ -39,18 +38,19 @@ function removeIdSelected () {
 function selectedTask () {
   listOfTasks.addEventListener('click', (evento) => {
     removeIdSelected();
-    targetEvent = evento.target;
+    const targetEvent = evento.target;
     targetEvent.id = 'selected';
   });
 }
 selectedTask();
 
 // Requisito 9
-// listOfTasks.addEventListener("dblclick", function(event){
-//     let selectedTask = event.target;
-//     if(selectedTask.classList.contains("completed")){
-//         selectedTask.classList.remove("completed");
-//     } else {
-//         selectedTask.classList.add("completed");
-//     }
-// })
+listOfTasks.addEventListener('dblclick', (event) => {
+    const selectedTask = event.target;
+    if(selectedTask.classList.contains("completed")){
+        selectedTask.classList.remove("completed");
+    } else {
+        selectedTask.classList.add("completed");
+    }
+})
+
