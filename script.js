@@ -28,6 +28,12 @@ function plugHtml(fatherElement, sonElement) {
   fatherElement.appendChild(sonElement);
 }
 
+function addMultiplesListeners(arr, eventName, listener) {
+  arr.forEach((element) => {
+    element.addEventListener(eventName, listener, false);
+  });
+}
+
 function addMultiplesEventsAndListeners(arr, eventsName, listener) {
   const events = eventsName.split(' ');
 
@@ -135,18 +141,10 @@ function taskCreation() {
   renderTask();
 }
 
-function buttonCreateTask() {
-  staticElements.buttonCreateTask.addEventListener('click', taskCreation);
-}
-
 function deleteAllTasks() {
   resetTaskList();
   resetAllTasks();
   renderTask();
-}
-
-function buttonDeleteAll() {
-  staticElements.buttonDeleteAll.addEventListener('click', deleteAllTasks);
 }
 
 function saveTaskClassPosition(className) {
@@ -164,26 +162,20 @@ function saveTaskClassPosition(className) {
 
 function deleteClassBased(className) {
   const removeIndex = saveTaskClassPosition(className);
-  user.allTasks[removeIndex].remove();
-  user.allTasks.splice(removeIndex, 1);
-}
-
-function deleteDoneTasks() {
-  for (let i = 0; i < user.allTasks.length; i += 1) {
-    deleteClassBased('complete');
+  if (user.allTasks[removeIndex] !== undefined) {
+    user.allTasks[removeIndex].remove();
+    user.allTasks.splice(removeIndex, 1);
   }
 }
 
-function buttonDeleteDone() {
-  staticElements.buttonDeleteDone.addEventListener('click', deleteDoneTasks);
+function deleteDoneTasks() {
+  for (let i = user.allTasks.length; i >= 0; i -= 1) {
+    deleteClassBased('completed');
+  }
 }
 
 function deleteSelectedTask() {
   deleteClassBased('selected');
-}
-
-function buttonDeleteSelected() {
-  staticElements.buttonDeleteSelected.addEventListener('click', deleteSelectedTask);
 }
 
 function moveUp() {
@@ -197,10 +189,6 @@ function moveUp() {
   }
 }
 
-function buttonMoveUp() {
-  staticElements.buttonMoveUp.addEventListener('click', moveUp);
-}
-
 function moveDown() {
   const initialPos = saveTaskClassPosition('selected');
   const tempArr = [...user.allTasks];
@@ -212,20 +200,12 @@ function moveDown() {
   }
 }
 
-function buttonMoveDown() {
-  staticElements.buttonMoveDown.addEventListener('click', moveDown);
-}
-
 function getAllTasks() {
   return JSON.stringify(staticElements.taskList.innerHTML);
 }
 
 function saveLocalStorage() {
   localStorage.setItem('task', getAllTasks());
-}
-
-function buttonSave() {
-  staticElements.buttonSave.addEventListener('click', saveLocalStorage);
 }
 
 function renderSaveTasks() {
@@ -236,14 +216,24 @@ function renderSaveTasks() {
   });
 }
 
+const buttonsListeners = {
+  criar_tarefa: taskCreation,
+  apaga_tudo: deleteAllTasks,
+  remover_finalizados: deleteDoneTasks,
+  salvar_tarefas: saveLocalStorage,
+  mover_cima: moveUp,
+  mover_baixo: moveDown,
+  remover_selecionado: deleteSelectedTask,
+};
+
+function execButton(event) {
+  const rightFunc = buttonsListeners[event.target.className];
+  rightFunc();
+}
+
 window.onload = () => {
   taskListInput();
-  buttonCreateTask();
-  buttonDeleteAll();
-  buttonDeleteDone();
-  buttonDeleteSelected();
-  buttonMoveUp();
-  buttonMoveDown();
-  buttonSave();
+  addMultiplesListeners(getAll('button'), 'click', execButton);
   renderSaveTasks();
+  lintenTaskItem();
 };
