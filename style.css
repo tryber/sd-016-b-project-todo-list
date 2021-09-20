@@ -1,0 +1,13 @@
+
+.selected {
+  background-color:  rgb(128,128,128);
+}
+
+.item {
+  cursor: pointer;
+  opacity: 1;
+}
+
+#criar-tarefa {
+  cursor: pointer;
+}
