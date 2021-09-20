@@ -65,3 +65,16 @@ function deleteTasks () {
 
 const deleteButton = document.getElementById('apaga-tudo');
 deleteButton.addEventListener('click', deleteTasks);
+
+// Requisito 11
+const selectedElements = document.getElementsByClassName('completed');
+const completedButton = document.getElementById('remover-finalizados');
+
+function completedTask () {
+    completedButton.addEventListener('click', () => {
+        while (selectedElements.length > 0) {
+            listOfTasks.removeChild(selectedElements[0]);
+        }
+    });
+}
+completedTask();
