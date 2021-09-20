@@ -37,3 +37,18 @@ function addTask() {
   });
 }
 addTask();
+
+// Requisito 7 e 8
+
+const taskList = document.getElementById('lista-tarefas');
+taskList.addEventListener('click', function (event) {
+    const allLi = document.querySelectorAll('li');
+  for (let i = 0; i < allLi.length; i += 1) {
+    allLi[i].style.backgroundColor = '';
+    allLi[i].classList.remove('selected');
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selected');
+  }
+});
+
+// trocar cor de fundo do input
