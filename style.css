@@ -1,0 +1,93 @@
+/*
+Para o CSS, foram consultados os materiais de W3Schools, Course da Trybe e MDN Web Docs.
+
+Links:
+https://www.w3schools.com/
+https://app.betrybe.com/course
+https://developer.mozilla.org/en-US
+*/
+
+.all-tasks {
+  line-height: 25px;
+  padding: 30px 20px;
+  text-transform: none;
+}
+
+body {
+  background-color: rgb(255 , 232 , 140);
+  font-family: Courier New, Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+button {
+  align-items: center;
+  appearance: none;
+  background-color: gray;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 5px 15px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: rgb(64 , 64 , 64);
+  color: rgb(255 , 224 , 102);
+  transition-duration: 0.5s;
+}
+
+.completed {
+  text-decoration: line-through black;
+}
+
+footer {
+  padding: 10px 60px;
+  text-align: right;
+}
+
+input {
+  font-size: 14px;
+  font-family: Courier New, Courier, monospace;
+  height: 18px;
+  margin: 0 20px;
+  width: 40%;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.layout {
+  background-color: rgb(253 , 249 , 249);
+  border-radius: 25px;
+  height: fit-content;
+  margin: 60px;
+  min-height: 450px;
+  padding: 60px;
+}
+
+.main-header .heading {
+  font-size: 36px;
+  margin: 0;
+}
+
+.main-header .subheading {
+  font-size: 18px;
+  font-style: oblique;
+  margin: 10px 0 60px;
+}
+
+::placeholder {
+  font-style: oblique;
+}
+
+.selected {
+  background-color: gray;
+}
