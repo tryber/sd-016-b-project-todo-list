@@ -11,6 +11,9 @@ function createListItem() {
   for (let index = 0; index < getListelements.length; index += 1) {
     getListelements[index].addEventListener('click', changeBackgroundColorToGray);
   }
+  for (let secondIndex = 0; secondIndex < getListelements.length; secondIndex += 1) {
+  getListelements[secondIndex].addEventListener('dblclick', changeLineThrough);
+}
 }
 
 const submitButton = document.getElementById('criar-tarefa');
@@ -38,3 +41,16 @@ function eraseAll() {
 
 const eraseButton = document.getElementById('apaga-tudo');
 eraseButton.addEventListener('click', eraseAll);
+
+// Mudar pra riscado
+function changeLineThrough(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+for (let secondIndex = 0; secondIndex < getListelements.length; secondIndex += 1) {
+  getListelements[secondIndex].addEventListener('dblclick', changeLineThrough);
+}
