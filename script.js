@@ -10,3 +10,13 @@ function createTask() {
 }
 
 buttonCreate.addEventListener('click', createTask);
+
+/* function mudarCor(event) {
+    if (document.getElementById('selected') === null) {
+      event.target.id = 'selected';
+    } else {
+      document.getElementById('selected').id = '';
+      event.target.id = 'selected';
+    }
+    novaTarefa.addEventListener('click', mudarCor);
+  } */
