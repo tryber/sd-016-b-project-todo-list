@@ -1,0 +1,6 @@
+.main-section{
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-end;
+  align-content: space-around;
+}
