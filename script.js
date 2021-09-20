@@ -4,18 +4,37 @@ function removeValueInput() {
   inputText.value = '';
 }
 
-// Adiciona a cor cinza ao clicar no item da lista
+// Desselecionar o selected
+function deselectedChangeColor() {
+  const li = document.getElementsByClassName('list-item');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected') === true) {
+      li[index].classList.toggle('selected');
+    }
+  }
+}
 
+// Adiciona a cor cinza ao clicar no item da lista
 function changeColor() {
   const li = document.getElementsByClassName('list-item');
   for (let index = 0; index < li.length; index += 1) {
     li[index].addEventListener('click', () => {
-      for (let index2 = 0; index2 < li.length; index2 += 1) {
-        if (li[index2].classList.contains('selected') === true) {
-          li[index2].classList.toggle('selected');
-        }
-      }
+      deselectedChangeColor();
       li[index].classList.toggle('selected');
+    });
+  }
+}
+
+// Duplo clique adiciona o elemento completed
+function doneItem() {
+  const li = document.getElementsByClassName('list-item');
+  for (let index = 0; index < li.length; index += 1) {
+    li[index].addEventListener('dblclick', () => {
+      if (li[index].classList.contains('completed') === true) {
+        li[index].classList.remove('completed');
+      } else {
+        li[index].classList.add('completed');
+      }
     });
   }
 }
@@ -32,10 +51,19 @@ function addLi() {
     list.appendChild(li);
   }
   changeColor();
+  doneItem();
+}
+
+// Botão que apaga todos os itens da lista
+function removeItem() {
+  var pai = document.getElementById('lista-tarefas');
+  pai.innerHTML= '';
 }
 
 window.onload = function page() {
   const buttonAdd = document.querySelector('#criar-tarefa');
   buttonAdd.addEventListener('click', addLi);
   buttonAdd.addEventListener('click', removeValueInput);
+  const buttonRemove = document.getElementById('apaga-tudo');
+  buttonRemove.addEventListener('click', removeItem);
 };
