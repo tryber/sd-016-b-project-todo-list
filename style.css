@@ -1,7 +1,19 @@
-.gray {
-  background-color: blue;
+
+.completed {
+  text-decoration: line-through;
 }
 
-.completed{
-text-decoration: line-through;
+button {
+  margin-left: 1.8%;
+  border: 0;
+  border-radius: 100px;
+}
+
+#criar-tarefa {
+  background-color:rgb(47, 248, 57);
+  color: white;
+}
+#apaga-tudo {
+  background-color: red;
+  color: white;
 }
