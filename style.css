@@ -1,7 +1,37 @@
+body {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: 515F7A;
+}
+
+h1 {
+  font-size: 36px;
+}
+
 .selected {
   background-color: gray;
 }
 
 .completed {
-    text-decoration: line-through solid black;
+  text-decoration: line-through solid black;
+}
+
+#funcionamento {
+  font-size: 20px;
+}
+
+.principal {
+  background-color: white;
+  border-radius: 25px;
+  margin: 3% 25%;
+  padding: 3% 0% 6% 0%;
+}
+
+.lista-tarefas {
+  text-align: start;
+  margin-left: 20%;
+}
+
+hr {
+  margin: 0% 28%;
 }

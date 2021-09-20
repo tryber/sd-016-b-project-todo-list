@@ -6,15 +6,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<header>
-    <h1>Minha Lista de Tarefas</h1>
-</header>
 <body>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input id="texto-tarefa" placeholder="Escreva aqui" type="text">
-    <button id="criar-tarefa">Adicionar</button>
-    <ol id="lista-tarefas"></ol>
-    <button id="apaga-tudo">Apagar lista</button>
+    <section class="principal">
+        <header>
+            <h1>Minha Lista de Tarefas</h1>
+        </header>
+        <div>
+            <p id="funcionamento"> <i>Clique duas vezes em um item para marcá-lo como completo</i></p>
+        </div>
+        <div class="lista-tarefas">
+            <input id="texto-tarefa" placeholder="Escreva aqui" type="text">
+            <button id="criar-tarefa">Adicionar</button>
+            <ol id="lista-tarefas"></ol>
+        </div>
+        <button id="apaga-tudo">Apagar lista</button>
+    </section>
 </body>
+<hr>
+<footer>
+    <p><i>Desenvolvido por questões de aprendizado <a href="https://github.com/Cleitonsub" target="_blank">Cleitonsub</a></i></p>
+</footer>
 <script src="script.js"></script>
 </html>

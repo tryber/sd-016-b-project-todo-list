@@ -56,8 +56,8 @@ function addLi() {
 
 // Botão que apaga todos os itens da lista
 function removeItem() {
-  var pai = document.getElementById('lista-tarefas');
-  pai.innerHTML= '';
+  const pai = document.getElementById('lista-tarefas');
+  pai.innerHTML = '';
 }
 
 window.onload = function page() {
