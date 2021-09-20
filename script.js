@@ -7,7 +7,7 @@ function createTask(){
     const itemListaDeTarefas = document.createElement("li");
     listaDeTarefa.appendChild(itemListaDeTarefas);
     itemListaDeTarefas.innerText = inputText.value;
-    inputText.value = " ";
+    inputText.value = "";
 }
 
 buttonTask.addEventListener("click",createTask)
