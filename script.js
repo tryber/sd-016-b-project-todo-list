@@ -27,13 +27,16 @@ document.body.appendChild(createButton);
 function addTask() {
   const getInput = document.getElementById('texto-tarefa');
   const getButton = document.getElementById('criar-tarefa');
-
   getButton.addEventListener('click', function () {
     const createLi = document.createElement('li');
     createLi.innerHTML = getInput.value;
     const getOl = document.getElementById('lista-tarefas');
-    getOl.appendChild(createLi);
-    getInput.value = '';
+    if (getInput.value === '') {
+      alert('você precisa inserir um texto'); 
+    } else {
+      getOl.appendChild(createLi);
+      getInput.value = '';
+    }
   });
 }
 addTask();
@@ -42,7 +45,7 @@ addTask();
 
 const taskList = document.getElementById('lista-tarefas');
 taskList.addEventListener('click', function (event) {
-    const allLi = document.querySelectorAll('li');
+  const allLi = document.querySelectorAll('li');
   for (let i = 0; i < allLi.length; i += 1) {
     allLi[i].style.backgroundColor = '';
     allLi[i].classList.remove('selected');
@@ -51,4 +54,11 @@ taskList.addEventListener('click', function (event) {
   }
 });
 
-// trocar cor de fundo do input
+// Requisito 9
+taskList.addEventListener('dblclick', function (event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+});
