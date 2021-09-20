@@ -62,3 +62,16 @@ taskList.addEventListener('dblclick', function (event) {
     event.target.classList.add('completed');
   }
 });
+
+// Requisito 10
+const CreateDeleteButton = document.createElement('button');
+CreateDeleteButton.id = 'apaga-tudo';
+CreateDeleteButton.innerText = 'Delete Tasks';
+document.body.appendChild(CreateDeleteButton);
+const allLi = document.querySelectorAll('li');
+
+CreateDeleteButton.addEventListener('click', function(){
+while (taskList.firstChild){
+    taskList.removeChild(taskList.firstChild)
+};
+})
