@@ -54,3 +54,14 @@ listOfTasks.addEventListener('dblclick', (event) => {
     }
 })
 
+// Requisito 10
+// fonte de pesquisa : 
+// while e remove -https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+function deleteTasks () {
+    while (listOfTasks.firstChild) {
+        listOfTasks.removeChild(listOfTasks.firstChild);
+    }
+}
+
+const deleteButton = document.getElementById('apaga-tudo');
+deleteButton.addEventListener('click', deleteTasks);
