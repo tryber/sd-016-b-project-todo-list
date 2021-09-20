@@ -1,6 +1,5 @@
-
 .selected {
-  background-color:  rgb(128,128,128);
+  background-color: gray;
 }
 
 .item {
@@ -10,4 +9,8 @@
 
 #criar-tarefa {
   cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
 }
