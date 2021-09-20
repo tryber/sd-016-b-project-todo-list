@@ -11,3 +11,16 @@ function createTask(){
 }
 
 buttonTask.addEventListener("click",createTask)
+
+
+function paintTask (event){
+    const selectedPaint = document.querySelector("paint")
+    if(selectedPaint === null) {
+        event.target.classList.add("paint")
+    } else {
+    selectedPaint.classList.remove("paint")
+    event.target.classlist.add("paint")
+    }
+}
+
+listaDeTarefa.addEventListener("click", paintTask)
