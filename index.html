@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="javascript/script.js"></script>
+  <title>To do List</title>
+</head>
+<body>
+  <section id="wrapper" class="wrapper abs-center">
+    <header>
+      <h1 style="position: relative"><span class="icon"></span>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <hr>
+    <main>
+      <section id="p-input">
+        <input id="texto-tarefa" type="text" name="task" placeholder="Digite alguma tarefa" onfocus="this.placeholder=''" onblur="this.placeholder='Digite alguma tarefa'">
+        <button id="criar-tarefa" type="submit" name="create-task">Adicionar</button>
+      </section>
+      <section id="p-list">
+        <div id="list" class="list center">
+          <ol id="lista-tarefas"></ol>
+        </div>
+      </section>
+      <section id="p-buttons">
+        <div class="buttons">
+          <button id="remover-selecionado" type="submit" name="remove-task">🗙</button>
+          <button id="mover-cima" type="submit" name="up-task">⬆</button>
+          <button id="mover-baixo" type="submit" name="down-task">⬇</button>
+          <button id="remover-finalizados" type="submit" name="clearend-task">Limpar completos</button>
+          <button id="apaga-tudo" type="submit" name="clearlist-task">Limpar lista</button>
+          <button id="salvar-tarefas" type="submit" name="savelist-task">Salvar lista</button>
+        </div>
+      </section>
+    </main>
+    <hr>
+    <footer>
+      <p>Sonhar com códigos é acordar em uma matrix!</p>
+    </footer>
+  </section>
+</body>
+</html>
