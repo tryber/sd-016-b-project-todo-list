@@ -12,6 +12,8 @@ const moverParaCima = document.getElementById('mover-cima');
 
 const moverParaBaixo = document.getElementById('mover-baixo');
 
+const removeSelecionada = document.getElementById('remover-selecionado');
+
 const classSelect = 'item-selected';
 
 function addTarefaFunction() {
@@ -108,6 +110,10 @@ function moverBaixo() {
   }
 }
 
+function removeTarefaSelecionada() {
+  document.querySelector('.item-selected').remove();
+}
+
 addTarefa.addEventListener('click', addTarefaFunction);
 
 todoList.addEventListener('click', selectedItem);
@@ -123,6 +129,8 @@ salvarTarefas.addEventListener('click', salvarTarefasFunc);
 moverParaCima.addEventListener('click', moverCima);
 
 moverParaBaixo.addEventListener('click', moverBaixo);
+
+removeSelecionada.addEventListener('click', removeTarefaSelecionada);
 
 window.onload = function () {
   if (localStorage.length !== 0) {
