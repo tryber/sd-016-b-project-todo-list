@@ -8,6 +8,10 @@ const removerFinalizadas = document.getElementById('remover-finalizados');
 
 const salvarTarefas = document.getElementById('salvar-tarefas');
 
+const moverParaCima = document.getElementById('mover-cima');
+
+const moverParaBaixo = document.getElementById('mover-baixo');
+
 const classSelect = 'item-selected';
 
 function addTarefaFunction() {
@@ -77,6 +81,33 @@ function salvarTarefasFunc() {
   }
 }
 
+function referenceItem() {
+  const itemSelect = document.getElementsByClassName('item-list');
+  for (let index = 0; index < itemSelect.length; index += 1) {
+    if (itemSelect[index].classList.contains(classSelect)) {
+      return index;
+    }
+  }
+}
+
+function moverCima() {
+  const slectedMov = document.getElementsByClassName(classSelect);
+
+  const itemBefore = referenceItem() - 1;
+  if (itemBefore >= 0) {
+    todoList.insertBefore(slectedMov[0], document.getElementsByClassName('item-list')[itemBefore]);
+  }
+}
+
+function moverBaixo() {
+  const slectedMov = document.getElementsByClassName(classSelect);
+  const itensList = document.getElementsByClassName('item-list');
+  const itemBefore = referenceItem() + 1;
+  if (itemBefore < itensList.length) {
+    todoList.insertBefore(document.getElementsByClassName('item-list')[itemBefore], slectedMov[0]);
+  }
+}
+
 addTarefa.addEventListener('click', addTarefaFunction);
 
 todoList.addEventListener('click', selectedItem);
@@ -88,6 +119,10 @@ apagaTudo.addEventListener('click', apagarTudo);
 removerFinalizadas.addEventListener('click', removeFinalizadas);
 
 salvarTarefas.addEventListener('click', salvarTarefasFunc);
+
+moverParaCima.addEventListener('click', moverCima);
+
+moverParaBaixo.addEventListener('click', moverBaixo);
 
 window.onload = function () {
   if (localStorage.length !== 0) {
