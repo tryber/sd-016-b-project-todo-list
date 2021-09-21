@@ -12,3 +12,14 @@ function addTask() {
   });
 }
 addTask();
+
+const addCSS = document.getElementById('lista-tarefas');
+addCSS.addEventListener('click', (event) => {
+  const lis = document.querySelectorAll('li');
+  for (let i = 0; i < lis.length; i++) {
+    lis[i].style.backgroundColor = '';
+    lis[i].classList.remove('selected');
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selected');
+  }
+});
