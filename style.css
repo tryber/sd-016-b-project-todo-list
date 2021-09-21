@@ -1,15 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  background-color: rgb(239 , 241 , 243);
   font-family: Urbanist, sans-serif;
 }
 
-.gray-background {
+header {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+#funcionamento {
+  margin-bottom: 40px;
+}
+
+button {
+  margin: 0 10px;
+}
+
+button , input {
+  padding: 3px;
+}
+
+#mover-cima , #mover-baixo , #remover-selecionado {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#add-task {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+#tasks-control {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+section ol {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+section ol li {
+  line-height: 30px;
+}
+
+.selected {
   background-color: gray;
 }
 
 .completed {
   text-decoration: line-through solid black;
-}
-
-button {
-  margin: 0 10px;
 }

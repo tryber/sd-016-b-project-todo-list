@@ -9,24 +9,31 @@ header.appendChild(title);
 const paragraph = document.createElement('p');
 paragraph.id = 'funcionamento';
 paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-main.appendChild(paragraph);
+header.appendChild(paragraph);
+
+const addTaskSection = document.createElement('section');
+addTaskSection.id = 'add-task';
+main.appendChild(addTaskSection);
 
 const input = document.createElement('input');
 input.id = 'texto-tarefa';
 input.type = 'text';
-main.appendChild(input);
+addTaskSection.appendChild(input);
 
 const addTaskButton = document.createElement('button');
 addTaskButton.id = 'criar-tarefa';
 addTaskButton.innerText = 'Adicionar';
-main.appendChild(addTaskButton);
+addTaskSection.appendChild(addTaskButton);
+
+const taskListSection = document.createElement('section');
+main.appendChild(taskListSection);
 
 const taskList = document.createElement('ol');
 taskList.id = 'lista-tarefas';
-main.appendChild(taskList);
+taskListSection.appendChild(taskList);
 
 function changeSelectedTask(selectedTask, newTask) {
-  const backgroundColor = 'gray-background';
+  const backgroundColor = 'selected';
   if (selectedTask !== newTask) {
     // ref: https://www.w3schools.com/jsref/prop_element_classlist.asp - pesquisei sobre os métodos 'add' e 'remove'
     selectedTask.classList.remove(backgroundColor);
@@ -35,18 +42,18 @@ function changeSelectedTask(selectedTask, newTask) {
 }
 
 function getSelectedTask() {
-  return document.querySelector('.gray-background');
+  return document.querySelector('.selected');
 }
 
 function changeTaskBackgroundColor(task) {
   task.addEventListener('click', (event) => {
     const selectedTask = getSelectedTask();
-    // Quando nenhuma tarefa foi selecionada ainda, o conteúdo de selectedTask é null, então eu apenas atribuo a classe gray-background ao elemento que disparou esse evento. Caso contrário, eu retiro gray-background da tarefa atual selecionada e atribuo ela ao elemento que disparou o evento.
+    // Quando nenhuma tarefa foi selecionada ainda, o conteúdo de selectedTask é null, então eu apenas atribuo a classe selected ao elemento que disparou esse evento. Caso contrário, eu retiro selected da tarefa atual selecionada e atribuo ela ao elemento que disparou o evento.
     if (selectedTask !== null) {
       changeSelectedTask(selectedTask, event.target);
     } else {
       // ref: https://www.w3schools.com/jsref/prop_element_classlist.asp - pesquisei sobre o método 'add'
-      event.target.classList.add('gray-background');
+      event.target.classList.add('selected');
     }
   });
 }
@@ -72,10 +79,14 @@ addTaskButton.addEventListener('click', () => {
   }
 });
 
+const controlSection = document.createElement('section');
+controlSection.id = 'tasks-control';
+main.appendChild(controlSection);
+
 const clearListButton = document.createElement('button');
 clearListButton.id = 'apaga-tudo';
 clearListButton.innerText = 'Limpar lista';
-main.appendChild(clearListButton);
+controlSection.appendChild(clearListButton);
 
 clearListButton.addEventListener('click', () => {
   // ref: https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ - pesquisei sobre como remover todos os filhos de um nó
@@ -87,7 +98,7 @@ clearListButton.addEventListener('click', () => {
 const removeTasksButton = document.createElement('button');
 removeTasksButton.id = 'remover-finalizados';
 removeTasksButton.innerText = 'Limpar completas';
-main.appendChild(removeTasksButton);
+controlSection.appendChild(removeTasksButton);
 
 removeTasksButton.addEventListener('click', () => {
   // ref: https://stackoverflow.com/questions/37311003/how-to-remove-an-item-from-htmlcollection - pesquisei sobre como remover todos os elementos com uma característica específica de uma HTML Collection
@@ -103,7 +114,7 @@ removeTasksButton.addEventListener('click', () => {
 const saveListButton = document.createElement('button');
 saveListButton.id = 'salvar-tarefas';
 saveListButton.innerText = 'Salvar Lista';
-main.appendChild(saveListButton);
+controlSection.appendChild(saveListButton);
 
 saveListButton.addEventListener('click', () => {
   const tasks = document.getElementsByClassName('task');
@@ -133,7 +144,7 @@ if (localStorage.length !== 0) {
 const upButton = document.createElement('button');
 upButton.id = 'mover-cima';
 upButton.innerText = '⇧';
-main.appendChild(upButton);
+controlSection.appendChild(upButton);
 
 upButton.addEventListener('click', () => {
   const selectedTask = getSelectedTask();
@@ -147,7 +158,7 @@ upButton.addEventListener('click', () => {
 const downButton = document.createElement('button');
 downButton.id = 'mover-baixo';
 downButton.innerText = '⇩';
-main.appendChild(downButton);
+controlSection.appendChild(downButton);
 
 downButton.addEventListener('click', () => {
   const selectedTask = getSelectedTask();
@@ -161,7 +172,7 @@ downButton.addEventListener('click', () => {
 const removeSelectedButton = document.createElement('button');
 removeSelectedButton.id = 'remover-selecionado';
 removeSelectedButton.innerText = 'X';
-main.appendChild(removeSelectedButton);
+controlSection.appendChild(removeSelectedButton);
 
 removeSelectedButton.addEventListener('click', () => {
   const selectedTask = getSelectedTask();
