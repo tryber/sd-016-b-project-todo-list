@@ -15,6 +15,17 @@ function createTask() {
   buttonId.addEventListener('click', addTask);
 }
 
+function listBack(list) {
+  const listTarget = list.target;
+  console.log(list.target);
+  listTarget.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function backColor() {
+  ordenedList.addEventListener('click', listBack);
+}
+
 window.onload = function init() {
   createTask();
+  backColor();
 };
