@@ -7,9 +7,10 @@ const button = document.createElement('button');
 const buttonClear = document.createElement('button');
 const buttonRemove = document.createElement('button');
 
-
+/* Header */
 document.body.appendChild(cabecalho);
 cabecalho.appendChild(h1);
+
 h1.innerText = 'Minha Lista de Tarefas';
 document.body.appendChild(p);
 p.id = 'funcionamento';
@@ -26,35 +27,43 @@ button.innerText = 'Adicionar';
 document.body.appendChild(buttonClear);
 document.body.appendChild(buttonRemove);
 buttonClear.innerText = 'Apagar';
-buttonRemove.innerText = 'Remover';
-
+buttonRemove.innerText = 'Remover Tudo';
+buttonRemove.id = 'apaga-tudo';
 
 /* adicionar tarefas */
 function addButton() {
-    let entrada = document.getElementById('texto-tarefa');
-    let input = entrada.value;
-    let ordernedList = document.getElementById('lista-tarefas');
-    let listaCriada = document.createElement('li');
-    listaCriada.innerHTML = input;
-    ordernedList.appendChild(listaCriada);
-    document.getElementById('texto-tarefa').value = '';
+  const entrada = document.getElementById('texto-tarefa');
+  const input = entrada.value;
+  const ordernedList = document.getElementById('lista-tarefas');
+  const listaCriada = document.createElement('li');
+  listaCriada.innerHTML = input;
+  listaCriada.classList.add('minhas-tarefas');
+  ordernedList.appendChild(listaCriada);
+  document.getElementById('texto-tarefa').value = '';
 }
 button.addEventListener('click', addButton);
 
 /* remove todas as tarefas */
 function remButton() {
-    let list = document.getElementById('lista-tarefas');
-    list.innerHTML = '';
+  const list = document.getElementById('lista-tarefas');
+  list.innerHTML = '';
 }
 buttonRemove.addEventListener('click', remButton);
 
 /* mudar background color quando selecionado */
 const list = document.getElementById('lista-tarefas');
-function changeBg (event) {
-    let selecionado = document.querySelector('.item-list');
-    if (selecionado && selecionado !== event.target) {
-        selecionado.classList.remove('item-list');
-    }
-    event.target.classList.toggle('item-list');
+function changeBg(event) {
+  const selecionado = document.querySelector('.item-list');
+  if (selecionado && selecionado !== event.target) {
+    selecionado.classList.remove('item-list');
+  }
+  event.target.classList.toggle('item-list');
 }
 list.addEventListener('click', changeBg);
+
+/* Riscar elemento da lista */
+/* const li = document.getElementsByClassName('minhas-tarefas');
+function riscaLinha(event) {
+  event.target.classList.toggle('completed');
+}
+li.addEventListener('click', riscaLinha); */
