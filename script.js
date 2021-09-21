@@ -30,8 +30,10 @@ function reset() {
 }
 //função que apaga tarefas concluídas
 function deleteCompletedTasks() {
-  let completas = document.querySelector('.completed');
-  completas.innerHTML = '';
+  const finalizados = document.querySelectorAll('.completed');
+  for (i=0; i < finalizados.length; i += 1) {
+    finalizados[i].remove();
+  }
 }
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
