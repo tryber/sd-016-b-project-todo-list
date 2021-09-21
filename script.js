@@ -34,9 +34,13 @@ function changeSelectedTask(selectedTask, newTask) {
   }
 }
 
+function getSelectedTask() {
+  return document.querySelector('.gray-background');
+}
+
 function changeTaskBackgroundColor(task) {
   task.addEventListener('click', (event) => {
-    const selectedTask = document.querySelector('.gray-background');
+    const selectedTask = getSelectedTask();
     // Quando nenhuma tarefa foi selecionada ainda, o conteúdo de selectedTask é null, então eu apenas atribuo a classe gray-background ao elemento que disparou esse evento. Caso contrário, eu retiro gray-background da tarefa atual selecionada e atribuo ela ao elemento que disparou o evento.
     if (selectedTask !== null) {
       changeSelectedTask(selectedTask, event.target);
@@ -121,5 +125,35 @@ if (localStorage.length !== 0) {
     task.innerText = savedTasks[index].text;
     taskList.appendChild(task);
     localStorage.clear();
+    changeTaskBackgroundColor(task);
+    markAsCompleted(task);
   }
 }
+
+const upButton = document.createElement('button');
+upButton.id = 'mover-cima';
+upButton.innerText = '⇧';
+main.appendChild(upButton);
+
+upButton.addEventListener('click', () => {
+  const selectedTask = getSelectedTask();
+  if (selectedTask === null) {
+    alert('Nenhuma tarefa foi selecionada.');
+  } else if (selectedTask !== taskList.firstElementChild) {
+    taskList.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  }
+});
+
+const downButton = document.createElement('button');
+downButton.id = 'mover-baixo';
+downButton.innerText = '⇩';
+main.appendChild(downButton);
+
+downButton.addEventListener('click', () => {
+  const selectedTask = getSelectedTask();
+  if (selectedTask === null) {
+    alert('Nenhuma tarefa foi selecionada.');
+  } else if (selectedTask !== taskList.lastElementChild) {
+    taskList.insertBefore(selectedTask.nextElementSibling, selectedTask);
+  }
+});
