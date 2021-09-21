@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+}
+#funcionamento{
+    margin: 0 10px;
+}
+.conteiner{
+    display: flex;
+}
+.box{
+    margin: 35px;
+}
+#criar-tarefa{
+    background-color: rgb(122, 212, 240);
+    border: 2px;
+    margin: 30px 10px;
+    padding: 10px;
+    border-radius: 15px;
+}
+#apagar-tudo{
+    background-color: rgb(122, 212, 240);
+    border: 2px;
+    margin: 30px 10px;
+    padding: 10px;
+    border-radius: 15px;
+}
