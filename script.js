@@ -50,6 +50,52 @@ function removeSelected() {
     selecteds[i].remove();
   }
 }
+//função que move para cima
+function moveUp() {
+  const itensList = document.querySelectorAll('.item');
+  for(i=1; i < itensList.length; i += 1) {
+    if(itensList[i].classList.contains('selected')) {
+      if(itensList[i].classList.contains('completed')) {
+        let upPosition = itensList[i].innerHTML;
+        let downPosition = itensList[i-1].innerHTML;
+        itensList[i].innerHTML = downPosition;
+        itensList[i-1].innerHTML = upPosition;
+        itensList[i-1].classList.add('completed','selected');
+        itensList[i].classList.remove('completed','selected');
+      } else {
+        let upPosition = itensList[i].innerHTML;
+        let downPosition = itensList[i-1].innerHTML;
+        itensList[i].innerHTML = downPosition;
+        itensList[i-1].innerHTML = upPosition;
+        itensList[i-1].classList.add('selected');
+        itensList[i].classList.remove('selected');
+      }
+    }
+  }
+}
+//função que move para baixo
+function moveDown() {
+  const itensList = document.querySelectorAll('.item');
+  for(i = itensList.length-1 ; i >= 0; i -= 1) {
+    if(itensList[i].classList.contains('selected')) {
+      if(itensList[i].classList.contains('completed')) {
+        let downPosition = itensList[i].innerHTML;
+        let upPosition = itensList[i+1].innerHTML;
+        itensList[i].innerHTML = upPosition;
+        itensList[i+1].innerHTML = downPosition;
+        itensList[i+1].classList.add('completed','selected');
+        itensList[i].classList.remove('completed','selected');
+      } else {
+        let downPosition = itensList[i].innerHTML;
+        let upPosition = itensList[i+1].innerHTML;
+        itensList[i].innerHTML = upPosition;
+        itensList[i+1].innerHTML = downPosition;
+        itensList[i+1].classList.add('selected');
+        itensList[i].classList.remove('selected');
+      }
+    }
+  }
+}
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 const task = document.getElementById('texto-tarefa'); 
@@ -60,3 +106,5 @@ document.getElementById('apaga-tudo').addEventListener('click',reset);
 document.getElementById('remover-finalizados').addEventListener('click',deleteCompletedTasks);
 document.getElementById('salvar-tarefas').addEventListener('click',saveTasks);
 document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
