@@ -25,16 +25,19 @@ window.onload = function letsBegin(){
   }
   list.addEventListener('click', liColorChange2);
   function liColorChange2(event) {
-    event.target.classList.add('bckGrey');
-  }
-
-  list.addEventListener('dblclick', completeTask);
-  function completeTask(event) {
-    if (event.target.classList.contains('completed')){
-      event.target.classList.remove('completed');
-    }else {
-    event.target.classList.add('completed');
+    if (listItem.length > 0) {
+      event.target.classList.add('bckGrey');
     }
   }
-
+//requisito 9
+  list.addEventListener('dblclick', completeTask);
+  function completeTask(event) {
+    if (listItem.length !== 0) {
+      if (event.target.classList.contains('completed')){
+        event.target.classList.remove('completed');
+      }else {
+      event.target.classList.add('completed');
+      }
+    }
+  }
 }
