@@ -31,7 +31,7 @@ function reset() {
 //função que apaga tarefas concluídas
 function deleteCompletedTasks() {
   const finalizados = document.querySelectorAll('.completed');
-  for (i=0; i < finalizados.length; i += 1) {
+  for (let i=0; i < finalizados.length; i += 1) {
     finalizados[i].remove();
   }
 }
@@ -46,14 +46,14 @@ window.onload = function beginning() {
 //função que remove tarefa selecionada
 function removeSelected() {
   const selecteds = document.querySelectorAll('.selected');
-  for (i=0; i < selecteds.length; i += 1) {
+  for (let i=0; i < selecteds.length; i += 1) {
     selecteds[i].remove();
   }
 }
 //função que move para cima
 function moveUp() {
   const itensList = document.querySelectorAll('.item');
-  for(i=1; i < itensList.length; i += 1) {
+  for(let i=1; i < itensList.length; i += 1) {
     if(itensList[i].classList.contains('selected')) {
       if(itensList[i].classList.contains('completed')) {
         let upPosition = itensList[i].innerHTML;
@@ -76,7 +76,7 @@ function moveUp() {
 //função que move para baixo
 function moveDown() {
   const itensList = document.querySelectorAll('.item');
-  for(i = itensList.length-1 ; i >= 0; i -= 1) {
+  for(let i = itensList.length-2; i >= 0; i -= 1) {
     if(itensList[i].classList.contains('selected')) {
       if(itensList[i].classList.contains('completed')) {
         let downPosition = itensList[i].innerHTML;
