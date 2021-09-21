@@ -32,12 +32,15 @@ const taskList = document.createElement('ol');
 taskList.id = 'lista-tarefas';
 taskListSection.appendChild(taskList);
 
-function changeSelectedTask(selectedTask, newTask) {
-  const backgroundColor = 'selected';
-  if (selectedTask !== newTask) {
-    // ref: https://www.w3schools.com/jsref/prop_element_classlist.asp - pesquisei sobre os métodos 'add' e 'remove'
-    selectedTask.classList.remove(backgroundColor);
-    newTask.classList.add(backgroundColor);
+function changeSelectedTask(selectedTask, newSelectedTask) {
+  const status = 'selected';
+  if (selectedTask !== newSelectedTask) {
+    /*
+    Consultei o site abaixo para descobrir como adicionar e remover uma classe sem perder as que já estavam aplicadas
+    ref: https://www.w3schools.com/jsref/prop_element_classlist.asp
+    */
+    selectedTask.classList.remove(status);
+    newSelectedTask.classList.add(status);
   }
 }
 
@@ -46,13 +49,16 @@ function getSelectedTask() {
 }
 
 function changeTaskBackgroundColor(task) {
+  /*
+  Consultei o site abaixo para descobrir como criar uma função anônima de forma que o linter aceitasse
+  ref: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+  */
   task.addEventListener('click', (event) => {
     const selectedTask = getSelectedTask();
     // Quando nenhuma tarefa foi selecionada ainda, o conteúdo de selectedTask é null, então eu apenas atribuo a classe selected ao elemento que disparou esse evento. Caso contrário, eu retiro selected da tarefa atual selecionada e atribuo ela ao elemento que disparou o evento.
     if (selectedTask !== null) {
       changeSelectedTask(selectedTask, event.target);
     } else {
-      // ref: https://www.w3schools.com/jsref/prop_element_classlist.asp - pesquisei sobre o método 'add'
       event.target.classList.add('selected');
     }
   });
@@ -60,7 +66,10 @@ function changeTaskBackgroundColor(task) {
 
 function markAsCompleted(task) {
   task.addEventListener('dblclick', (event) => {
-    // ref: https://www.w3schools.com/jsref/prop_element_classlist.asp - pesquisei sobre o método 'toggle'
+    /*
+    Consultei o site abaixo para descobrir como alternar a aplicação de uma classe a um elemento
+    ref: https://www.w3schools.com/jsref/prop_element_classlist.asp
+    */
     event.target.classList.toggle('completed');
   });
 }
@@ -89,7 +98,10 @@ clearListButton.innerText = 'Limpar lista';
 controlSection.appendChild(clearListButton);
 
 clearListButton.addEventListener('click', () => {
-  // ref: https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ - pesquisei sobre como remover todos os filhos de um nó
+  /*
+  Consultei o site abaixo para descobrir como remover todos os filhos de um nó
+  ref: https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+  */
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
@@ -101,10 +113,16 @@ removeTasksButton.innerText = 'Limpar completas';
 controlSection.appendChild(removeTasksButton);
 
 removeTasksButton.addEventListener('click', () => {
-  // ref: https://stackoverflow.com/questions/37311003/how-to-remove-an-item-from-htmlcollection - pesquisei sobre como remover todos os elementos com uma característica específica de uma HTML Collection
+  /*
+  Consultei o site abaixo para descobrir como remover todos os elementos com uma característica específica de uma HTML Collection
+  ref: https://stackoverflow.com/questions/37311003/how-to-remove-an-item-from-htmlcollection
+  */
   const { children } = taskList;
   for (let index = (children.length - 1); index >= 0; index -= 1) {
-    // ref: https://www.w3schools.com/jsref/prop_element_classlist.asp - pesquisei sobre o método 'contains'
+    /*
+    Consultei o link abaixo para saber como identificar se um elemento contém uma classe específica aplicada a ele
+    ref: https://www.w3schools.com/jsref/prop_element_classlist.asp
+    */
     if (children[index].classList.contains('completed')) {
       taskList.removeChild(children[index]);
     }
@@ -151,6 +169,10 @@ upButton.addEventListener('click', () => {
   if (selectedTask === null) {
     alert('Nenhuma tarefa foi selecionada.');
   } else if (selectedTask !== taskList.firstElementChild) {
+    /*
+    Consultei o site abaixo para descobrir como adicionar um elemento HTML antes de um determinado elemento já existente
+    ref: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+    */
     taskList.insertBefore(selectedTask, selectedTask.previousElementSibling);
   }
 });
