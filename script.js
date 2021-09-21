@@ -1,9 +1,3 @@
-document.getElementById('criar-tarefa').addEventListener('click', createTask);
-const task = document.getElementById('texto-tarefa');
-
-const taskList = document.getElementById('lista-tarefas');taskList.addEventListener('click', seleciona);
-taskList.addEventListener('dblclick', complete);
- 
 // função que faz o botao incluir uma tarefa no fim da lista
 function createTask() {  
   const list = document.getElementById('lista-tarefas');
@@ -13,7 +7,7 @@ function createTask() {
   listItem.classList.add('item');
   task.value = '';
 }
-//função que muda a cor da task selecionada
+// função que muda a cor da task selecionada
 function seleciona(event) {
   const items = document.querySelectorAll('li');
   for (let i = 0; i < items.length; i += 1 ) {
@@ -22,11 +16,29 @@ function seleciona(event) {
     event.target.classList.add('selected');
   }
 }
-//função que risca task completa
-function complete (event) {
+// função que risca task completa
+function complete(event) {
   if(event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
 }
+//função que apaga tudo
+function reset() {
+  taskList.innerHTML = '';
+}
+//função que apaga tarefas concluídas
+function deleteCompletedTasks() {
+  let completas = document.querySelector('.completed');
+  completas.innerHTML = '';
+}
+
+document.getElementById('criar-tarefa').addEventListener('click', createTask);
+const task = document.getElementById('texto-tarefa'); 
+
+const taskList = document.getElementById('lista-tarefas');  taskList.addEventListener('click', seleciona); 
+taskList.addEventListener('dblclick', complete); 
+
+document.getElementById('apaga-tudo').addEventListener('click',reset);
+document.getElementById('remover-finalizados').addEventListener('click',deleteCompletedTasks);
