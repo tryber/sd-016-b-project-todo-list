@@ -43,6 +43,13 @@ function saveTasks() {
 window.onload = function beginning() {
   taskList.innerHTML = localStorage.getItem('List');
 }
+//função que remove tarefa selecionada
+function removeSelected() {
+  const selecteds = document.querySelectorAll('.selected');
+  for (i=0; i < selecteds.length; i += 1) {
+    selecteds[i].remove();
+  }
+}
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 const task = document.getElementById('texto-tarefa'); 
@@ -52,3 +59,4 @@ taskList.addEventListener('dblclick', complete);
 document.getElementById('apaga-tudo').addEventListener('click',reset);
 document.getElementById('remover-finalizados').addEventListener('click',deleteCompletedTasks);
 document.getElementById('salvar-tarefas').addEventListener('click',saveTasks);
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
