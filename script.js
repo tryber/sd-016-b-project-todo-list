@@ -35,12 +35,20 @@ function deleteCompletedTasks() {
     finalizados[i].remove();
   }
 }
+//função que salva as tarefas
+function saveTasks() {
+  localStorage.setItem('List', taskList.innerHTML);
+}
+
+window.onload = function beginning() {
+  taskList.innerHTML = localStorage.getItem('List');
+}
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 const task = document.getElementById('texto-tarefa'); 
-
 const taskList = document.getElementById('lista-tarefas');  taskList.addEventListener('click', seleciona); 
 taskList.addEventListener('dblclick', complete); 
 
 document.getElementById('apaga-tudo').addEventListener('click',reset);
 document.getElementById('remover-finalizados').addEventListener('click',deleteCompletedTasks);
+document.getElementById('salvar-tarefas').addEventListener('click',saveTasks);
