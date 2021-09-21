@@ -1,53 +1,29 @@
-function creatElementHTML(tagName) {
-  const element = document.createElement(tagName);
-  return element;
-}
-
-function addElementToDOM(parent, element) {
-  parent.appendChild(element);
-}
-
-function setId(elementName, idName) {
-  const element = elementName;
-  element.id = idName;
-}
-
-function setClass(elementName, className) {
-  const element = elementName;
-  element.classList.add(className);
-}
-
-function setInnerText(elementName, text) {
-  const element = elementName;
-  element.innerText = text;
-}
-
 const header = document.querySelector('header');
 
 const main = document.querySelector('main');
 
-const title = creatElementHTML('h1');
-setInnerText(title, 'Minha Lista de Tarefas');
-addElementToDOM(header, title);
+const title = document.createElement('h1');
+title.innerText = 'Minha Lista de Tarefas';
+header.appendChild(title);
 
-const paragraph = creatElementHTML('p');
-setId(paragraph, 'funcionamento');
-setInnerText(paragraph, 'Clique duas vezes em um item para marcá-lo como completo');
-addElementToDOM(main, paragraph);
+const paragraph = document.createElement('p');
+paragraph.id = 'funcionamento';
+paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+main.appendChild(paragraph);
 
-const input = creatElementHTML('input');
-setId(input, 'texto-tarefa');
+const input = document.createElement('input');
+input.id = 'texto-tarefa';
 input.type = 'text';
-addElementToDOM(main, input);
+main.appendChild(input);
 
-const createButton = creatElementHTML('button');
-setId(createButton, 'criar-tarefa');
-setInnerText(createButton, 'Criar');
-addElementToDOM(main, createButton);
+const addTaskButton = document.createElement('button');
+addTaskButton.id = 'criar-tarefa';
+addTaskButton.innerText = 'Adicionar';
+main.appendChild(addTaskButton);
 
-const taskList = creatElementHTML('ol');
-setId(taskList, 'lista-tarefas');
-addElementToDOM(main, taskList);
+const taskList = document.createElement('ol');
+taskList.id = 'lista-tarefas';
+main.appendChild(taskList);
 
 function changeSelectedTask(selectedTask, newTask) {
   const backgroundColor = 'gray-background';
@@ -78,38 +54,36 @@ function markAsCompleted(task) {
   });
 }
 
-function createTask() {
+addTaskButton.addEventListener('click', () => {
   if (input.value !== '') {
-    const task = creatElementHTML('li');
-    setClass(task, 'task');
-    setInnerText(task, input.value);
-    addElementToDOM(taskList, task);
+    const task = document.createElement('li');
+    task.classList.add('task');
+    task.innerText = input.value;
+    taskList.appendChild(task);
     input.value = '';
     changeTaskBackgroundColor(task);
     markAsCompleted(task);
   } else {
     alert('Ops! Você ainda não inseriu a tarefa.');
   }
-}
+});
 
-createButton.addEventListener('click', createTask);
+const clearListButton = document.createElement('button');
+clearListButton.id = 'apaga-tudo';
+clearListButton.innerText = 'Limpar lista';
+main.appendChild(clearListButton);
 
-const clearButton = creatElementHTML('button');
-setId(clearButton, 'apaga-tudo');
-setInnerText(clearButton, 'Apagar lista');
-addElementToDOM(main, clearButton);
-
-clearButton.addEventListener('click', () => {
+clearListButton.addEventListener('click', () => {
   // ref: https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/ - pesquisei sobre como remover todos os filhos de um nó
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
 });
 
-const removeTasksButton = creatElementHTML('button');
-setId(removeTasksButton, 'remover-finalizados');
-setInnerText(removeTasksButton, 'Remover tarefa');
-addElementToDOM(main, removeTasksButton);
+const removeTasksButton = document.createElement('button');
+removeTasksButton.id = 'remover-finalizados';
+removeTasksButton.innerText = 'Limpar completas';
+main.appendChild(removeTasksButton);
 
 removeTasksButton.addEventListener('click', () => {
   // ref: https://stackoverflow.com/questions/37311003/how-to-remove-an-item-from-htmlcollection - pesquisei sobre como remover todos os elementos com uma característica específica de uma HTML Collection
@@ -121,3 +95,31 @@ removeTasksButton.addEventListener('click', () => {
     }
   }
 });
+
+const saveListButton = document.createElement('button');
+saveListButton.id = 'salvar-tarefas';
+saveListButton.innerText = 'Salvar Lista';
+main.appendChild(saveListButton);
+
+saveListButton.addEventListener('click', () => {
+  const tasks = document.getElementsByClassName('task');
+  const taskObjects = [];
+  for (let index = 0; index < tasks.length; index += 1) {
+    taskObjects[index] = {
+      text: tasks[index].innerText,
+      classes: tasks[index].classList.value,
+    };
+  }
+  localStorage.setItem('tasks', JSON.stringify(taskObjects));
+});
+
+if (localStorage.length !== 0) {
+  const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+  for (let index = 0; index < savedTasks.length; index += 1) {
+    const task = document.createElement('li');
+    task.className = savedTasks[index].classes;
+    task.innerText = savedTasks[index].text;
+    taskList.appendChild(task);
+    localStorage.clear();
+  }
+}

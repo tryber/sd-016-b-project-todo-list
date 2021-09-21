@@ -9,3 +9,7 @@ body {
 .completed {
   text-decoration: line-through solid black;
 }
+
+button {
+  margin: 0 10px;
+}
