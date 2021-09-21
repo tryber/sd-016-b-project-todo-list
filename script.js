@@ -29,3 +29,14 @@ function completedTask(event) {
     event.target.className = 'completed';
   }
 }
+
+const buttonDel = document.getElementById('apaga-tudo');
+
+function deleteTasks() {
+  for (let i = lista.children.length; i > 0; i -= 1) {
+    const lastTask = lista.lastChild;
+    lista.removeChild(lastTask);
+  }
+}
+
+buttonDel.addEventListener('click', deleteTasks);
