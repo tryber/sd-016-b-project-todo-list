@@ -53,3 +53,12 @@ function removeFinalizados (){
 }
 removeFi.addEventListener('click', removeFinalizados);
 
+// Requisito 12 //
+// Requisito 13 // 
+// Requisito 14 //
+
+let buttonRemove = document.getElementById('remover-selecionado');
+buttonRemove.addEventListener('click', function (){
+   let x = document.querySelector('.cinza');
+   list.removeChild(x);
+})
