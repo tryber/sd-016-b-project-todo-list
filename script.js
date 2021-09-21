@@ -23,3 +23,14 @@ addCSS.addEventListener('click', (event) => {
     event.target.classList.add('selected');
   }
 });
+
+function clearAllLo() {
+  const clearButton = document.getElementById('apaga-tudo');
+  const listaTarefas = document.getElementById('lista-tarefas');
+  clearButton.addEventListener('click', () => {
+    while (listaTarefas.firstChild) {
+      listaTarefas.removeChild(listaTarefas.firstChild);
+    }
+  });
+}
+clearAllLo();

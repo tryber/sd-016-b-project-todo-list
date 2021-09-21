@@ -4,9 +4,6 @@
 #funcionamento{
     margin: 0 10px;
 }
-#texto-tarefa{
-
-}
 .conteiner{
     display: flex;
 }
@@ -16,10 +13,14 @@
 #criar-tarefa{
     background-color: rgb(122, 212, 240);
     border: 2px;
-    margin: 30px;
+    margin: 30px 10px;
     padding: 10px;
     border-radius: 15px;
 }
-#lista-tarefas{
-
+#apagar-tudo{
+    background-color: rgb(122, 212, 240);
+    border: 2px;
+    margin: 30px 10px;
+    padding: 10px;
+    border-radius: 15px;
 }
