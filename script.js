@@ -157,3 +157,13 @@ downButton.addEventListener('click', () => {
     taskList.insertBefore(selectedTask.nextElementSibling, selectedTask);
   }
 });
+
+const removeSelectedButton = document.createElement('button');
+removeSelectedButton.id = 'remover-selecionado';
+removeSelectedButton.innerText = 'X';
+main.appendChild(removeSelectedButton);
+
+removeSelectedButton.addEventListener('click', () => {
+  const selectedTask = getSelectedTask();
+  taskList.removeChild(selectedTask);
+});
