@@ -54,9 +54,17 @@ function removeFinalizados (){
 removeFi.addEventListener('click', removeFinalizados);
 
 // Requisito 12 //
+function save() {
+  localStorage.setItem('list', list.innerHTML);  
+}
+document.getElementById('salvar-tarefas').addEventListener('click',save); 
+
+window.onload = function saved() {
+  list.innerHTML = localStorage.getItem('list');
+}
+
 // Requisito 13 // 
 // Requisito 14 //
-
 let buttonRemove = document.getElementById('remover-selecionado');
 buttonRemove.addEventListener('click', function (){
    let x = document.querySelector('.cinza');
