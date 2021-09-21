@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+}
+
+body {
+    background-image: url(/home/marllon/sd-016-b-project-todo-list/papel.png);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+    background-color: black;
+}
+
+header {
+    margin-top: 45px;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+} 
+
+div p {
+    margin-top: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.list-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: white;
+    text-transform: uppercase;
+    border: none;
+    font-size: medium;
+}
+
+button:hover {
+    background-color: rgb(194, 194, 194);
+}
+
+li {
+    font-size: x-large;
+    padding: 14px;
+}
+
+li, button {
+    cursor: pointer;
+    margin: 5px;
+}
+
 .selected {
     background-color: rgb(128, 128, 128);
 }
@@ -6,6 +74,5 @@
     text-decoration: line-through;
 }
 
-li, button {
-    cursor: pointer;
-}
+/* Referência CSS */
+/* https://www.w3schools.com/cssref/pr_background-repeat.asp */
