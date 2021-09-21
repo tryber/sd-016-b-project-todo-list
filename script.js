@@ -1,6 +1,7 @@
 let criarTarefa = document.getElementById("criar-tarefa")
 let listaTarefas = document.getElementById("lista-tarefas")
 let textoTarefa = document.getElementById("texto-tarefa")
+let items = document.getElementsByTagName('li')
 
 function addTask() {
   if (textoTarefa.value !== "") {
@@ -14,5 +15,27 @@ function addTask() {
     textoTarefa.value = ""
   }
 }
-
 criarTarefa.addEventListener("click", addTask)
+
+
+function selectedTask(task) {
+  for (let i = 0; i < items.length; i++) {
+    let item = items[i]
+    if (item.classList.contains("selected")) {
+      item.classList.remove("selected")
+    }
+  }
+  let selectedTask = task.target
+  selectedTask.classList.add("selected")
+  
+  for (let i = 0; i < items.length; i++) {
+    let selected = items[i]
+    if (selected.classList.contains("selected")) {
+      selected.style.backgroundColor = "rgb(128, 128, 128)"
+    } else {
+      selected.style.backgroundColor = "white"
+    }
+  }
+}  
+  
+listaTarefas.addEventListener("click", selectedTask)
