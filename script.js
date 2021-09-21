@@ -13,22 +13,28 @@ window.onload = function letsBegin(){
   
   butt.addEventListener('click', createLi);
   
-//REQUISITO 7
+//REQUISITO 7-8
 
-  list.addEventListener('click', liColorChange)
+  list.addEventListener('click', liColorChange);
 
-  const listItem = document.getElementsByClassName('listItem')
+  const listItem = document.getElementsByClassName('listItem');
   function liColorChange() {
     for (i = 0; i< listItem.length; i += 1) {
-      listItem[i].classList.remove('bckGrey')
+      listItem[i].classList.remove('bckGrey');
     }
   }
-  list.addEventListener('click', liColorChange2)
+  list.addEventListener('click', liColorChange2);
   function liColorChange2(event) {
-    event.target.classList.add('bckGrey')
+    event.target.classList.add('bckGrey');
+  }
+
+  list.addEventListener('dblclick', completeTask);
+  function completeTask(event) {
+    if (event.target.classList.contains('completed')){
+      event.target.classList.remove('completed');
+    }else {
+    event.target.classList.add('completed');
+    }
   }
 
 }
-
-
-  
