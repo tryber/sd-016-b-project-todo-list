@@ -1,7 +1,10 @@
 let criarTarefa = document.getElementById("criar-tarefa")
+let limparTudo = document.getElementById("apaga-tudo")
+let limparFinalizados = document.getElementById("remover-finalizados")
 let listaTarefas = document.getElementById("lista-tarefas")
 let textoTarefa = document.getElementById("texto-tarefa")
-let items = document.getElementsByTagName('li')
+let items = document.getElementsByTagName("li")
+let finalizados = document.getElementsByClassName("completed")
 
 function addTask() {
   if (textoTarefa.value !== "") {
@@ -16,6 +19,21 @@ function addTask() {
   }
 }
 criarTarefa.addEventListener("click", addTask)
+
+
+function eraseAll() {
+  listaTarefas.innerText=""
+}
+limparTudo.addEventListener("click", eraseAll)
+
+
+function eraseCompleted() {
+  for (let i = 0; i < finalizados.length; i++) {
+    finalizados[i].remove()
+  }
+}
+limparFinalizados.addEventListener("click", eraseCompleted)
+
 
 
 function selectedTask(task) {
@@ -47,9 +65,9 @@ function completed(task) {
   if (itemSelected.classList.contains("completed")) {
     itemSelected.classList.remove('completed')
     itemSelected.style.textDecoration = "none"
-    } else {
-      itemSelected.classList.add("completed")
-      itemSelected.style.textDecoration = " line-through solid rgb(0, 0, 0)"
-    }
+  } else {
+    itemSelected.classList.add("completed")
+    itemSelected.style.textDecoration = " line-through solid rgb(0, 0, 0)"
+  }
 }
 listaTarefas.addEventListener("dblclick", completed)
