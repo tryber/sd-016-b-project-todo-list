@@ -37,5 +37,19 @@ function selectedTask(task) {
     }
   }
 }  
-  
 listaTarefas.addEventListener("click", selectedTask)
+
+
+function completed(task) {
+  
+  let itemSelected = task.target
+  
+  if (itemSelected.classList.contains("completed")) {
+    itemSelected.classList.remove('completed')
+    itemSelected.style.textDecoration = "none"
+    } else {
+      itemSelected.classList.add("completed")
+      itemSelected.style.textDecoration = " line-through solid rgb(0, 0, 0)"
+    }
+}
+listaTarefas.addEventListener("dblclick", completed)
