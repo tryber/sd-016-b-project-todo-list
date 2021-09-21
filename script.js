@@ -11,7 +11,7 @@ lista.setAttribute("id",contador);
 lista.setAttribute("class","list");
 contador+=1;
 lista.onclick =new Function("selecionadora(this)")
-lista.ondblclick = new Function("DBclick(this)")
+
 lista.innerText = criarLista;
 salvando.push(criarLista)
 ordenada.append(lista);
@@ -31,14 +31,5 @@ function selecionadora(a){
   }
 }
   selecionadora()
-function DBclick(b){
-  let incompleto = document.getElementsByClassName("list")
-  for(let i=0; o<salvando.length; i+=1){
-    incompleto[i].classList.add("incompleto")
-  if (b.target.classList.contains('completed') === true) {
-   b.target.classList.remove('completed');
-  } else {
-    b.target.classList.add('completed');
-  }
-}
-DBclick()
+
+
