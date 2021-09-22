@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-image: linear-gradient(rgba(247, 175, 219, 0.897), rgba(209, 175, 175, 0.705)), url("img.jpg");
+  background-image:  linear-gradient(rgba(247, 175, 219, 0.897), rgba(209, 175, 175, 0.705)),url("img.jpg");
   background-repeat:repeat-y;
   background-size: 100% 100%;
 }
@@ -17,8 +17,8 @@ body {
   font-size: 80px;
   font-family:cursive;
   color: antiquewhite;
-  height: 400px;
-  padding: 100px;
+  height: 330px;
+  padding: 50px;
   align-items: center;
 }
 
@@ -28,6 +28,8 @@ body {
   align-self: center;
   width: 80%;
   justify-content: space-evenly;
+  border-radius: 4px;
+  background-color: rgba(245, 222, 179, 0.407);
 
 }
 
@@ -35,6 +37,7 @@ body {
   text-align: center;
   font-size: 65px;
   color: whitesmoke;
+
 }
 
 #adiciona-task {
@@ -42,6 +45,7 @@ body {
   justify-content: center;
   padding: 20px;
   height: 100px;
+  padding-top: 200px;
 }
 
 #lista-tarefas {
@@ -78,7 +82,8 @@ button {
   flex-basis: 9%;
   justify-content: space-between;
   padding: 20px;
-  margin-bottom: 800px;
+  padding-bottom: 590px;
+
 }
 
 .selected {
