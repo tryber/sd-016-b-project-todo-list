@@ -1,0 +1,15 @@
+.main-input{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  align-content: space-between;
+}
+
+.bckGrey {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
