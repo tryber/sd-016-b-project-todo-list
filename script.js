@@ -1,5 +1,5 @@
 const task = document.getElementById('texto-tarefa');
-const taskList = document.getElementById('lista-tarefas'); 
+const taskList = document.getElementById('lista-tarefas');
 
 // função que faz o botao incluir uma tarefa no fim da lista
 function createTask() {
@@ -102,13 +102,12 @@ function moveDown() {
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 
-
 taskList.addEventListener('click', seleciona);
 taskList.addEventListener('dblclick', complete);
 
 document.getElementById('apaga-tudo').addEventListener('click', reset);
 document.getElementById('remover-finalizados').addEventListener('click', deleteCompletedTasks);
-document.getElementById('salvar-tarefas').addEventListener('click',saveTasks);
+document.getElementById('salvar-tarefas').addEventListener('click', saveTasks);
 document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
-document.getElementById('mover-cima').addEventListener('click',  moveUp);
-document.getElementById('mover-baixo').addEventListener('click',  moveDown);
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
