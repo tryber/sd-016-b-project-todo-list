@@ -1,0 +1,8 @@
+html, body {
+    background-color:white;
+}
+
+.oneClick {
+    text-decoration: line-through;
+    background-color: rgb(128,128,128);
+}
