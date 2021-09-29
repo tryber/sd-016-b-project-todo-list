@@ -1,17 +1,16 @@
-let addToDoButton = document.getElementById('criar-tarefa');
-let toDoList = document.getElementById('lista-tarefas');
-let inputField = document.getElementById('texto-tarefa');
-
+const addToDoButton = document.getElementById('criar-tarefa');
+const toDoList = document.getElementById('lista-tarefas');
+const inputField = document.getElementById('texto-tarefa');
 addToDoButton.addEventListener('click', function(){
-    const paragraph = document.createElement('p')
-    //paragraph.classList.add('') // ADICIONAR ESSA CLASSE QUANDO FOR ESTILIZAR O PROJETO.
+    const paragraph = document.createElement('li')
+    paragraph.classList.add('paragStyle');
     paragraph.innerText = inputField.value;
     toDoList.appendChild(paragraph);
     inputField.value = '';
     paragraph.addEventListener('click', function(){
         paragraph.classList.add('oneClick');
-    })
+    });
     paragraph.addEventListener('dblclick', function(){
         toDoList.removeChild(paragraph);
-    })
-})
+    });
+});
