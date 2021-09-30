@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List | Projeto</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List | Projeto</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/911acf68dc.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-    </header>
-    <div class="center">
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <input id="texto-tarefa" type="text">
-    </div>
-    <div class="center button-container">
-        <button id="criar-tarefa">Adicionar</button>
-        <button id="remover-selecionado">Remover Selecionado</button>
-        <button id="remover-finalizados">Apagar Finalizadas</button>
-        <button id="apaga-tudo">Apagar Todas</button>
-    </div>
-    <div class="center list-container">
-        <ol id="lista-tarefas">
-        </ol>
-    </div>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+  </header>
+  <div class="center">
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <input id="texto-tarefa" type="text">
+  </div>
+  <div class="center button-container">
+    <button id="criar-tarefa">Adicionar</button>
+    <button id="remover-selecionado">Remover Selecionado</button>
+    <button id="remover-finalizados">Apagar Finalizadas</button>
+    <button id="apaga-tudo">Apagar Todas</button>
+    <button id="mover-cima"><i class="fas fa-arrow-up"></i></button>
+    <button id="mover-baixo"><i class="fas fa-arrow-down"></i></button>
+    <button id="salvar-tarefas">Salvar</button>
+  </div>
+  <div class="center list-container">
+    <ol id="lista-tarefas">
+    </ol>
+  </div>
 </body>
 <script src="script.js"></script>
+
 </html>
