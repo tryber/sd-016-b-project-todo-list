@@ -72,3 +72,21 @@ function removeFinished() {
 }
 document.getElementById('remover-finalizados').addEventListener('click', removeFinished); // se clicar no botao remove os itens com check (riscados)
 
+// requisito 12
+// função que salva a lista de tarefas
+//function saveList() {
+//}
+// requisito 13
+// função mover item selecionado para cima ou para baixo.
+//function moveItem() {
+//}
+// requisito 14 
+// função remove item selecionado
+function removeItem() {
+  for (let i = 0; i < document.getElementsByTagName('li').length; i += 1) {
+    if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      document.getElementsByTagName('li')[i].remove();
+  }
+  }
+}
+document.getElementById('remover-selecionado').addEventListener('click', removeItem); 
