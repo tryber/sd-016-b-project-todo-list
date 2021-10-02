@@ -1,7 +1,7 @@
-window.onload = function(){
+window.onload = function () {
     
     getValueAndSubmit();
-    
+   
 }
 
 
@@ -21,6 +21,35 @@ function getValueAndSubmit(){
 
         inputText.value = '';
        
+        setBGcolor ();
+
         })
     
+}
+
+function setBGcolor (){
+
+    let li = document.getElementsByTagName('li');
+   
+
+    for (let index = 0; index < li.length; index++) {
+        
+        li[index].addEventListener('click',function(event){
+
+            let position = Array.from(li).indexOf(event.target);
+            
+            li[position].style.backgroundColor = 'rgb(128,128,128)';
+           
+            for (let index = 0; index < li.length; index++) {
+                
+                if (index != position){
+                   
+                    li[index].style.backgroundColor = '';
+                }
+                
+            }
+        })
+        
+    }
+
 }
