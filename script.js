@@ -73,9 +73,16 @@ function removeFinished() {
 document.getElementById('remover-finalizados').addEventListener('click', removeFinished); // se clicar no botao remove os itens com check (riscados)
 
 // requisito 12
-// função que salva a lista de tarefas
-//function saveList() {
-//}
+// função que salva a lista de tarefas 
+function saveList() {
+  //textoSave = document.getElementById('lista-tarefas').innerHTML; //FONTE: https://stackoverflow.com/questions/45525062/save-data-to-localstorage-and-display-it-as-innerhtml
+  localStorage.setItem('lista', document.getElementById('lista-tarefas').innerHTML); 
+}
+ //https://javascript.tutorialink.com/is-it-possible-to-call-local-storage-inside-a-function-and-use-it-in-windows-onload-closed/
+window.onload = function () {  //fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/GlobalEventHandlers/onload
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('lista');
+};
+document.getElementById('salvar-tarefas').addEventListener('click',saveList);
 // requisito 13
 // função mover item selecionado para cima ou para baixo.
 //function moveItem() {
