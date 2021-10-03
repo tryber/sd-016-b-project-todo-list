@@ -83,10 +83,28 @@ window.onload = function () {  //fonte: https://developer.mozilla.org/pt-BR/docs
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('lista');
 };
 document.getElementById('salvar-tarefas').addEventListener('click',saveList);
+
 // requisito 13
 // função mover item selecionado para cima ou para baixo.
-//function moveItem() {
-//}
+function moveItemUP() {
+  for (let i = 1; i < document.getElementsByTagName('li').length; i += 1 ) { 
+    if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      document.querySelector('#lista-tarefas').insertBefore(document.getElementsByTagName('li')[i], document.getElementsByTagName('li')[i-1]);
+    }
+  }
+}
+document.getElementById('mover-cima').addEventListener('click',moveItemUP);
+
+function moveItemDOWN() {
+  for (let i = 0; i < (document.getElementsByTagName('li').length-1); i += 1 ) { 
+    if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      document.querySelector('#lista-tarefas').insertBefore((document.getElementsByTagName('li')[i]), document.getElementsByTagName('li')[i+1]);
+    }
+  }
+}
+document.getElementById('mover-baixo').addEventListener('click',moveItemDOWN);
+
+
 // requisito 14 
 // função remove item selecionado
 function removeItem() {
