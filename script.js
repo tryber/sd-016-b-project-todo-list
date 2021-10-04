@@ -40,7 +40,7 @@ function listGray(list) {
   const listTarget = list.target;
   // const listSelected = document.getElementsByClassName('list-ordened');
   for (let i = 0; i < listSelected.length; i += 1) {
-    if (list.target === listSelected[i]) {
+    if (listTarget === listSelected[i]) {
       listTarget.classList.add('selected');
       listTarget.style.backgroundColor = 'rgb(128, 128, 128)';
       listTarget.style.borderRadius = '2px';
@@ -48,7 +48,20 @@ function listGray(list) {
   }
 }
 
+function lineThr(list) {
+  const listTarget = list.target;
+  // https://www.horadecodar.com.br/2020/10/08/detectar-se-um-elemento-contem-uma-classe-com-javascript/
+  if (listTarget.classList.contains('completed') === true) {
+    listTarget.classList.remove('completed');
+    listTarget.style.textDecoration = '';
+  } else {
+    listTarget.classList.add('completed');
+    listTarget.style.textDecoration = 'line-through solid black';
+  }
+}
+
 function selectTask() {
+  ordenedList.addEventListener('dblclick', lineThr);
   ordenedList.addEventListener('click', listGray);
 }
 
