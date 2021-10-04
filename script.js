@@ -95,15 +95,15 @@ function moveItemUP() {
 }
 document.getElementById('mover-cima').addEventListener('click',moveItemUP);
 
-function moveItemDOWN() {
-  for (let i = 0; i < (document.getElementsByTagName('li').length-1); i += 1 ) { 
+function moveItemDOWN() { 
+  for (let i = 0; i < document.getElementsByTagName('li').length-1; i += 1 ) { 
     if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-      document.querySelector('#lista-tarefas').insertBefore((document.getElementsByTagName('li')[i]), document.getElementsByTagName('li')[i+1]);
+      document.querySelector('#lista-tarefas').insertBefore(document.getElementsByTagName('li')[i], document.getElementsByTagName('li')[i+2]);
+    break;
     }
   }
 }
 document.getElementById('mover-baixo').addEventListener('click',moveItemDOWN);
-
 
 // requisito 14 
 // função remove item selecionado
@@ -114,4 +114,4 @@ function removeItem() {
   }
   }
 }
-document.getElementById('remover-selecionado').addEventListener('click', removeItem); 
+document.getElementById('remover-selecionado').addEventListener('click', removeItem);
