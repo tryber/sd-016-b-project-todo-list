@@ -6,8 +6,8 @@ const ordenedList = document.getElementById('lista-tarefas');
 const listSelected = document.getElementsByClassName('list-ordened');
 // section 2
 const bRemoveSelect = document.getElementById('remover-selecionado');
-// const bMoveUp = document.getElementById('mover-cima');
-// const bMoveDown = document.getElementById('mover-baixo');
+const bMoveUp = document.getElementById('mover-cima');
+const bMoveDown = document.getElementById('mover-baixo');
 const bClearTaskFinish = document.getElementById('remover-finalizados');
 // const bSaveTask = document.getElementById('salvar-tarefas');
 
@@ -98,10 +98,34 @@ function removeSelected() {
   bRemoveSelect.addEventListener('click', rmSelected);
 }
 
+function up() {
+  const upSelected = document.getElementsByClassName('selected')[0];
+  if (upSelected !== null && upSelected !== ordenedList.firstElementChild) {
+    ordenedList.insertBefore(upSelected, upSelected.previousElementSibling);
+  }
+}
+
+function upTo() {
+  bMoveUp.addEventListener('click', up);
+}
+
+function down() {
+  const upSelected = document.getElementsByClassName('selected')[0];
+  if (upSelected !== null && upSelected !== ordenedList.lastElementChild) {
+    ordenedList.insertBefore(upSelected, upSelected.nextElementSibling.nextElementSibling);
+  }
+}
+
+function downTo() {
+  bMoveDown.addEventListener('click', down);
+}
+
 window.onload = function init() {
   createTask();
   selectTask();
   clearAllTask();
   removeCompleted();
   removeSelected();
+  upTo();
+  downTo();
 };
