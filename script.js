@@ -5,7 +5,7 @@ const inputId = document.getElementById('texto-tarefa');
 const ordenedList = document.getElementById('lista-tarefas');
 const listSelected = document.getElementsByClassName('list-ordened');
 // section 2
-// const bRemoveSelect = document.getElementById('remover-selecionado');
+const bRemoveSelect = document.getElementById('remover-selecionado');
 // const bMoveUp = document.getElementById('mover-cima');
 // const bMoveDown = document.getElementById('mover-baixo');
 const bClearTaskFinish = document.getElementById('remover-finalizados');
@@ -87,9 +87,21 @@ function removeCompleted() {
   bClearTaskFinish.addEventListener('click', rmCompleted);
 }
 
+function rmSelected() {
+  const listFinish = document.getElementsByClassName('selected');
+  while (listFinish.length > 0) {
+    listFinish[0].remove();
+  }
+}
+
+function removeSelected() {
+  bRemoveSelect.addEventListener('click', rmSelected);
+}
+
 window.onload = function init() {
   createTask();
   selectTask();
   clearAllTask();
   removeCompleted();
+  removeSelected();
 };
