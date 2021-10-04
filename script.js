@@ -100,7 +100,7 @@ function removeSelected() {
 
 function up() {
   const upSelected = document.getElementsByClassName('selected')[0];
-  if (upSelected !== null && upSelected !== ordenedList.firstElementChild) {
+  if (upSelected !== undefined && upSelected !== ordenedList.firstElementChild) {
     ordenedList.insertBefore(upSelected, upSelected.previousElementSibling);
   }
 }
@@ -111,7 +111,7 @@ function upTo() {
 
 function down() {
   const upSelected = document.getElementsByClassName('selected')[0];
-  if (upSelected !== null && upSelected !== ordenedList.lastElementChild) {
+  if (upSelected !== undefined && upSelected !== ordenedList.lastElementChild) {
     ordenedList.insertBefore(upSelected, upSelected.nextElementSibling.nextElementSibling);
   }
 }
