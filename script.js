@@ -8,7 +8,7 @@ const listSelected = document.getElementsByClassName('list-ordened');
 // const bRemoveSelect = document.getElementById('remover-selecionado');
 // const bMoveUp = document.getElementById('mover-cima');
 // const bMoveDown = document.getElementById('mover-baixo');
-// const bClearTaskFinish = document.getElementById('remover-finalizados');
+const bClearTaskFinish = document.getElementById('remover-finalizados');
 // const bSaveTask = document.getElementById('salvar-tarefas');
 
 function addTask() {
@@ -76,8 +76,20 @@ function clearAllTask() {
   bClearTask.addEventListener('click', clearTask);
 }
 
+function rmCompleted() {
+  const listFinish = document.getElementsByClassName('completed');
+  while (listFinish.length > 0) {
+    listFinish[0].remove();
+  }
+}
+
+function removeCompleted() {
+  bClearTaskFinish.addEventListener('click', rmCompleted);
+}
+
 window.onload = function init() {
   createTask();
   selectTask();
   clearAllTask();
+  removeCompleted();
 };
