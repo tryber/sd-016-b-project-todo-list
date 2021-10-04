@@ -9,7 +9,7 @@ const bRemoveSelect = document.getElementById('remover-selecionado');
 const bMoveUp = document.getElementById('mover-cima');
 const bMoveDown = document.getElementById('mover-baixo');
 const bClearTaskFinish = document.getElementById('remover-finalizados');
-// const bSaveTask = document.getElementById('salvar-tarefas');
+const bSaveTask = document.getElementById('salvar-tarefas');
 
 function addTask() {
   if (inputId.value.length < 4) {
@@ -67,6 +67,7 @@ function selectTask() {
 
 function clearTask() {
   // https://stackoverflow.com/questions/683366/remove-all-the-children-dom-elements-in-div
+  localStorage.clear();
   while (ordenedList.hasChildNodes()) {
     ordenedList.removeChild(ordenedList.lastChild);
   }
@@ -120,7 +121,20 @@ function downTo() {
   bMoveDown.addEventListener('click', down);
 }
 
+function saveTask() {
+  localStorage.setItem('saveTask', ordenedList.innerHTML);
+}
+
+function saveAllTask() {
+  bSaveTask.addEventListener('click', saveTask);
+}
+
+function reloadPage() {
+  ordenedList.innerHTML = localStorage.getItem('saveTask');
+}
+
 window.onload = function init() {
+  reloadPage();
   createTask();
   selectTask();
   clearAllTask();
@@ -128,4 +142,5 @@ window.onload = function init() {
   removeSelected();
   upTo();
   downTo();
+  saveAllTask();
 };
