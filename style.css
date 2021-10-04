@@ -1,3 +1,25 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   margin: 0;
+  background-color: green;
+}
+
+body div {
+  background-color: white;
+  border-radius: 25px;
+  padding: 200px;
+  width: 540px;
+  margin: auto;
+  margin-top: 1.5%;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 50px;
 }
