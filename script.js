@@ -1,6 +1,6 @@
 // section 1
 const bCreateTask = document.getElementById('criar-tarefa');
-// const bClearTask = document.getElementById('apagar-tudo');
+const bClearTask = document.getElementById('apaga-tudo');
 const inputId = document.getElementById('texto-tarefa');
 const ordenedList = document.getElementById('lista-tarefas');
 const listSelected = document.getElementsByClassName('list-ordened');
@@ -65,7 +65,19 @@ function selectTask() {
   ordenedList.addEventListener('click', listGray);
 }
 
+function clearTask() {
+  // https://stackoverflow.com/questions/683366/remove-all-the-children-dom-elements-in-div
+  while (ordenedList.hasChildNodes()) {
+    ordenedList.removeChild(ordenedList.lastChild);
+  }
+}
+
+function clearAllTask() {
+  bClearTask.addEventListener('click', clearTask);
+}
+
 window.onload = function init() {
   createTask();
   selectTask();
+  clearAllTask();
 };
