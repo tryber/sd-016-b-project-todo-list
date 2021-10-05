@@ -1,10 +1,8 @@
 const body = document.querySelector('body');
-/* Eu tinha visto essa dica em algum post no instagram como possível solução pra deixar as
-variaveis globais, atribuindo ela sem valor e depois reatribuindo ela dentro da função com outro
-valor */
 let main;
 let input;
 let ol;
+let li;
 
 // função que cria o elemento com a tag header como filha de body
 function mkHeader() {
@@ -46,6 +44,8 @@ function mkList() {
   main.appendChild(createOl);
   createOl.id = 'lista-tarefas';
   const toOl = document.querySelector('ol'); ol = toOl;
+  ol.style.display = 'flex'
+  ol.style.flexDirection = 'column'
 }
 
 // função que cria o elemento com a tag li como filha de ol, atribuindo id e classList
@@ -54,11 +54,11 @@ function mkNewListItem(inputContent) {
   createLI.innerHTML = inputContent;
   createLI.classList = 'toDo';
   ol.appendChild(createLI);
+  const toLi = document.getElementsByTagName('li'); li = toLi;
 }
 
 /* função que cria o elemento com a tag button para criar tarefas como filho de main, atribuindo
 id e conteúdo html além de adicionar um escutador de eventos que interage com o input.value */
-
 function mkButton() {
   const createButton = document.createElement('button');
   createButton.id = 'criar-tarefa';
@@ -123,7 +123,51 @@ function mkDelDones() {
   });
 }
 
-window.onload = function start() {
+function mkSaver() {
+  const createSaveButton = document.createElement('button');
+  createSaveButton.id = 'salvar-tarefas';
+  createSaveButton.innerText = 'Salvar Tarefas';
+  main.appendChild(createSaveButton);
+  createSaveButton.addEventListener('click', function saver() {
+    localStorage.clear()
+    for (let index = 0; index < li.length; index += 1) {
+      const liContent = li[index].innerHTML;
+      localStorage.setItem(`saved${[index]}`, `${liContent}`)
+    }
+  });
+}
+
+function getSaves() {
+  const values = Object.values(localStorage);
+  for (let index = 0; index < values.length; index += 1) {
+    const lis = document.createElement('li');
+    lis.innerHTML = values[index];
+    lis.classList += 'toDo'
+    ol.appendChild(lis);
+  }
+}
+
+const downAndUp = () => {
+  const toDown = document.createElement('button');
+  toDown.innerText = 'Descer'
+  toDown.id = 'mover-baixo'
+  const toUp = document.createElement('button');
+  toUp.innerText = 'Subir'
+  toUp.id = 'mover-cima'
+  main.appendChild(toDown)
+  main.appendChild(toUp)
+}
+
+const moveLI = () => {
+  let down = document.getElementById('mover-baixo')
+  let up = document.getElementById('mover-cima')
+  const selectedLi = querySelector('.selected')
+  down.addEventListener('click', () => {
+    
+  })
+}
+
+window.onload = () => {
   mkHeader();
   mkMain();
   mkParagraph();
@@ -134,4 +178,7 @@ window.onload = function start() {
   mkDo();
   mkDelAll();
   mkDelDones();
+  mkSaver();
+  getSaves();
+  downAndUp();
 };
