@@ -3,7 +3,12 @@ const inputText = document.getElementById('texto-tarefa');
 const addButton = document.getElementById('criar-tarefa');
 const delAllButton = document.getElementById('apaga-tudo');
 const delButton = document.getElementById('remover-finalizados');
+const saveListBtn = document.getElementById('salvar-tarefas');
+const delSelected = document.getElementById('remover-selecionado');
+const moveDownBtn = document.getElementById('mover-baixo');
+const moveUpBtn = document.getElementById('mover-cima');
 const liAmmount = orderedList.children;
+let select = document.getElementsByClassName('background-li');
 
 function liChangeColor(event) {
   const background = 'background-li';
@@ -76,7 +81,38 @@ function delDoneButton() {
   delButton.addEventListener('click', clearDone);
 }
 
+saveListBtn.addEventListener('click', () => {
+  const savedItens = orderedList.innerHTML;
+  localStorage.setItem('list', savedItens);
+  alert('Lista salva!!');
+});
+
+delSelected.addEventListener('click', () => {
+  if(select.length === 1) {
+    select[0].remove();
+  }
+});
+
+moveDownBtn.addEventListener('click', () => {
+  if (select[0] !== undefined) {
+    if (select[0].nextElementSibling !== null){
+      orderedList.insertBefore(select[0].nextElementSibling, select[0]);
+    }
+  }
+});
+
+moveUpBtn.addEventListener('click', () => {
+  if (select[0] !== undefined) {
+    if (select[0].previousElementSibling !== null){
+      orderedList.insertBefore(select[0], select[0].previousElementSibling);
+    }
+  }
+});
+
 window.onload = function start() {
   addButtonDel();
   delDoneButton();
+  orderedList.innerHTML = localStorage.getItem('list');
+  addListenerClickLi();
+  addListenerDoubleClickLi();
 };
