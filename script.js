@@ -2,12 +2,24 @@ const addButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const inputField = document.getElementById('texto-tarefa');
 const resetButton = document.getElementById('apaga-tudo');
-const removeButton = document.getElementById('remover-finalizados')
+const removeButton = document.getElementById('remover-finalizados');
+const saveTasksButton = document.getElementById("salvar-tarefas")
 
 function removeCompletedTask() {
-  const taskList = document.getElementById('lista-tarefas');
   Array.from(taskList.children).forEach((task) => {
     if (task.classList.contains('completed')) task.remove();
+  });
+}
+
+function saveTasks() {
+  window.localStorage.setItem('tasks', JSON.stringify(taskList.innerHTML));
+}
+
+function getTasks() {
+  const tasks = JSON.parse(window.localStorage.getItem('tasks'));
+  taskList.innerHTML = tasks;
+  Array.from(taskList.children).forEach((task) => {
+    addTaskEventListeners(task);
   });
 }
 
@@ -36,3 +48,6 @@ resetButton.addEventListener('click', function() {
 });
 
 removeButton.addEventListener('click', removeCompletedTask);
+
+saveTasksButton.addEventListener('click', saveTasks);
+  getTasks();
