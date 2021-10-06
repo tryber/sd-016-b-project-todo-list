@@ -2,22 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
     <link rel="stylesheet" href="style.css">
-    <title>To-do list.</title>
 </head>
+
 <body>
     <header>Minha Lista de Tarefas</header>
-    <div id="mainDiv">
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <input type="text" id="texto-tarefa"> <button id="criar-tarefa">+</button>
-        <div>
+
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+
+    <input type="text" id="texto-tarefa"> <button id="criar-tarefa"> Adicionar </button>
+    
+    <main>
+        <div id="div-list">
             <ol id="lista-tarefas">
-                
             </ol>
         </div>
-    </div>
+
+        <button id="apaga-tudo">Reset</button>
+        <button id="remover-finalizados">Excluir tarefas completas.</button>
+    </main>
 
     <script src="script.js"></script>
 </body>
