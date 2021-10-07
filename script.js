@@ -1,4 +1,5 @@
 getValueAndSubmit();
+deleteTaskList ();
 
 function getValueAndSubmit(){
     
@@ -53,4 +54,19 @@ function setLineThrough (event){
 
             event.target.classList.toggle('completed');
   
+}
+
+function deleteTaskList (){
+         let taskList = document.getElementById('lista-tarefas');
+        const deleteAll = document.getElementById('apaga-tudo');
+
+        deleteAll.addEventListener('click',function(event){
+               
+                while (taskList.firstChild){
+
+                    taskList.removeChild(taskList.firstChild);
+                }
+                
+   })
+
 }
