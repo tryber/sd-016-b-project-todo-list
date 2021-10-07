@@ -1,5 +1,6 @@
 getValueAndSubmit();
 deleteTaskList ();
+removeFinishedTasks ();
 
 function getValueAndSubmit(){
     
@@ -58,7 +59,7 @@ function setLineThrough (event){
 
 function deleteTaskList (){
          let taskList = document.getElementById('lista-tarefas');
-        const deleteAll = document.getElementById('apaga-tudo');
+         const deleteAll = document.getElementById('apaga-tudo');
 
         deleteAll.addEventListener('click',function(event){
                
@@ -68,5 +69,24 @@ function deleteTaskList (){
                 }
                 
    })
+
+}
+
+function removeFinishedTasks (){
+
+       
+       const removeFinished = document.getElementById('remover-finalizados');
+
+       removeFinished.addEventListener('click',function(){
+            
+            let itensLista = document.querySelectorAll('li');
+
+            for (let index = 0; index < itensLista.length; index++) {
+            
+                if (itensLista[index].classList.contains('completed') === true){
+                    itensLista[index].remove();
+                }
+            }
+       })
 
 }
