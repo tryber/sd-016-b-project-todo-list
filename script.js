@@ -45,7 +45,6 @@ clearitens.addEventListener('click', removeAll);
 const removeFinishedItens = document.getElementById('remover-finalizados');
 function removeLinedItem() {
   const completedTasks = document.querySelectorAll('.completed');
-  console.log(completedTasks);
   if (completedTasks.length > 0) {
     for (let index = 0; index < completedTasks.length; index += 1) {
       completedTasks[index].remove();
