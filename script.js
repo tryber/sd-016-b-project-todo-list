@@ -11,12 +11,12 @@ function addtask() {
 // altera o fundo do texto clicado para cinza
 const toGray = document.getElementById('lista-tarefas');
 function changeColor(e) {
-  const selectedItem = document.querySelectorAll('li');
-  for (let index = 0; index < selectedItem.length; index += 1) {
-    selectedItem[index].style.backgroundColor = '';
+  if (e.backgroundColor === 'rgb(128, 128, 128)') {
+    e.backgroundColor === '';
+  } else {
+    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-}
+};
 toGray.addEventListener('click', changeColor);
 
 // adiciona uma linha no meio do texto qunado clicado duas vezes
@@ -54,3 +54,5 @@ function removeLinedItem() {
 }
 
 removeFinishedItens.addEventListener('click', removeLinedItem);
+
+

@@ -1,4 +1,6 @@
 body {
+
+  align-items: center;
   min-height: 100vh;
   background-color: rgb(189 , 212 , 231);
   background-image: linear-gradient
@@ -7,4 +9,10 @@ body {
 
 .completed {
   text-decoration: line-through solid black;
+  
 }
+
+button{
+  border: outset ;
+}
+
