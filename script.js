@@ -1,9 +1,17 @@
-const addButton = document.getElementById('criar-tarefa');
-const taskList = document.getElementById('lista-tarefas');
-const inputField = document.getElementById('texto-tarefa');
-const resetButton = document.getElementById('apaga-tudo');
-const removeButton = document.getElementById('remover-finalizados');
-const saveTasksButton = document.getElementById("salvar-tarefas");
+const addButton = q('#criar-tarefa');
+const taskList = q('#lista-tarefas');
+const inputField = q('#texto-tarefa');
+const resetButton = q('#apaga-tudo');
+const removeButton = q('#remover-finalizados');
+const saveTasksButton = q("#salvar-tarefas");
+
+function q(params) {
+  return document.body.querySelector(params);
+}
+
+function qAll(params) {
+  return document.body.querySelectorAll(params);
+}
 
 function removeCompletedTask() {
   Array.from(taskList.children).forEach((task) => {
@@ -12,6 +20,13 @@ function removeCompletedTask() {
 };
 
 function backgroundColor(event) {
+
+  const aleatorio = qAll('li');
+
+  for (let i = 0; i < aleatorio.length; i += 1) {
+    aleatorio[i].style.backgroundColor = ''
+  }
+  
   event.target.style.backgroundColor = 'gray';
 };
 
