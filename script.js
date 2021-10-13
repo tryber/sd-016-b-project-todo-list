@@ -1,6 +1,10 @@
+ 
+
 getValueAndSubmit();
 deleteTaskList ();
 removeFinishedTasks ();
+saveItens();    
+returnItens();
 
 function getValueAndSubmit(){
     
@@ -26,7 +30,7 @@ function getValueAndSubmit(){
        
             itensLista[index].addEventListener('click',setBGcolor);
             itensLista[index].addEventListener('dblclick',setLineThrough);
-                
+            itensLista[index].addEventListener('click',getPosition);
        }
 
        })
@@ -37,8 +41,8 @@ function setBGcolor(event){
         
         let itensLista = document.getElementsByTagName('li')
         
-        let position = Array.from(itensLista).indexOf(event.target);
-            
+        let position = Array.from(itensLista).indexOf(event.target);            
+
         itensLista[position].style.backgroundColor = 'rgb(128,128,128)';
            
         for (let index = 0; index < itensLista.length; index++) {
@@ -89,4 +93,83 @@ function removeFinishedTasks (){
             }
        })
 
+}
+
+function getPosition (event){
+
+    let itensLista = document.getElementsByTagName('li')
+        
+    let position = Array.from(itensLista).indexOf(event.target); 
+
+    return position;
+}
+
+
+function removeSelected (){
+
+    let position = getPosition();
+    let itensList = document.querySelectorAll('li');
+
+    let buttonRemoveSelected = document.getElementById('remover-selecionado');
+
+    buttonRemoveSelected.addEventListener('click', function(event){
+
+        itensList[position].remove();
+
+    })
+    
+
+}
+
+function saveItens (){
+
+    let saveTasks = document.getElementById('salvar-tarefas');
+   
+    saveTasks.addEventListener('click',function(){     
+        
+        let listaItens = document.querySelectorAll('li');
+        let cont = 100;
+        for (let index = 0; index < listaItens.length; index++) {
+            
+            let getClass = listaItens[index].className;
+            localStorage.setItem(index,listaItens[index].innerText);
+            localStorage.setItem(cont,getClass);
+            cont++
+        }
+
+
+    })         
+}
+
+function returnItens(){
+    
+    let taskList = document.getElementById('lista-tarefas');
+   
+    let cont = 100;
+   
+    for (let index = 0; index < localStorage.length; index++) {
+
+            let texto = localStorage.getItem(index);
+            let classe = localStorage.getItem(cont);
+    
+            let li = document.createElement('li')
+
+            li.innerText = texto;
+           
+            if (classe){
+    
+                li.classList.add(classe);
+    
+            }
+            
+            cont++;
+
+            if(localStorage.getItem(index)){
+
+                taskList.appendChild(li);
+            }
+            
+
+       
+    }
 }
