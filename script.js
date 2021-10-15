@@ -1,11 +1,3 @@
- 
-
-getValueAndSubmit();
-deleteTaskList ();
-removeFinishedTasks ();
-saveItens();    
-returnItens();
-
 function getValueAndSubmit(){
     
     let submit = document.getElementById('criar-tarefa');
@@ -30,7 +22,30 @@ function getValueAndSubmit(){
        
             itensLista[index].addEventListener('click',setBGcolor);
             itensLista[index].addEventListener('dblclick',setLineThrough);
-            itensLista[index].addEventListener('click',getPosition);
+            itensLista[index].addEventListener('click',function(event){
+
+                let itensLista = document.querySelectorAll('li')
+        
+                let position = Array.from(itensLista).indexOf(event.target);
+
+                let x = itensLista[position].id;
+
+                if ( x != 'wasSelected'){
+
+                    itensLista[position].id = 'wasSelected';
+
+                    for (let index = 0; index < itensLista.length; index++) {
+                        
+                        if (!itensLista[position]){
+
+                            itensLista[index].id = '';
+                        }
+                        
+                    }
+                }
+                
+                
+            });
        }
 
        })
@@ -95,28 +110,25 @@ function removeFinishedTasks (){
 
 }
 
-function getPosition (event){
-
-    let itensLista = document.getElementsByTagName('li')
-        
-    let position = Array.from(itensLista).indexOf(event.target); 
-
-    return position;
-}
-
-
 function removeSelected (){
 
-    let position = getPosition();
-    let itensList = document.querySelectorAll('li');
+   let removeSelected = document.getElementById('remover-selecionado');
 
-    let buttonRemoveSelected = document.getElementById('remover-selecionado');
+   removeSelected.addEventListener('click', function(){
 
-    buttonRemoveSelected.addEventListener('click', function(event){
+        let itensLista = document.querySelectorAll('li');
 
-        itensList[position].remove();
+        for (let index = 0; index < itensLista.length; index++) {
+           
+            let x = itensLista[index].id ;
 
-    })
+            if (x){
+                itensLista[index].remove();
+            }
+            
+        }
+
+   })
     
 
 }
@@ -166,6 +178,13 @@ function returnItens(){
 
             if(localStorage.getItem(index)){
 
+                let itensLista = document.querySelectorAll('li');
+                
+                for (let index = 0; index < itensLista.length; index++) {
+       
+                    itensLista[index].addEventListener('click',setBGcolor);
+                    itensLista[index].addEventListener('dblclick',setLineThrough);                   
+               }
                 taskList.appendChild(li);
             }
             
@@ -173,3 +192,9 @@ function returnItens(){
        
     }
 }
+getValueAndSubmit();
+deleteTaskList();
+removeFinishedTasks();
+removeSelected();
+saveItens();    
+returnItens();
