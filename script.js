@@ -3,6 +3,7 @@ const taskList = q('#lista-tarefas');
 const inputField = q('#texto-tarefa');
 const resetButton = q('#apaga-tudo');
 const removeButton = q('#remover-finalizados');
+const removeSelectedButton = q("#remover-selecionado");
 const saveTasksButton = q("#salvar-tarefas");
 
 function q(params) {
@@ -13,24 +14,33 @@ function qAll(params) {
   return document.body.querySelectorAll(params);
 }
 
+function checkClass() {
+  const arrClassList = document.getElementsByClassName('selected');
+
+  for (let i = 0; i < arrClassList.length; i += 1) {
+    arrClassList[i].classList.remove('selected');
+  }
+}
+
+function selectedItem(event) {
+  checkClass();
+
+  const oneclick = event.target;
+
+  oneclick.classList.add('selected');
+}
+
 function removeCompletedTask() {
   Array.from(taskList.children).forEach((task) => {
     if (task.classList.contains('completed')) task.remove()
   });
 };
 
-function backgroundColor(event) {
-
-  const aleatorio = qAll('li');
-
-  for (let i = 0; i < aleatorio.length; i += 1) {
-    aleatorio[i].style.backgroundColor = ''
-  }
-  
-  event.target.style.backgroundColor = 'gray';
+function removeSelectedTask() {
+  document.querySelector('.selected').remove();
 };
 
-function lineThrough(e) {
+function completedTask(e) {
   if (e.target.className === 'completed') {
     e.target.className = '';
   } else {
@@ -45,14 +55,15 @@ addButton.addEventListener('click', function() {
   inputField.value = '';
   taskList.appendChild(addList);
 
-  addList.addEventListener('click', backgroundColor)
+  addList.addEventListener('click', selectedItem)
 
-  addList.addEventListener('dblclick', lineThrough)
+  addList.addEventListener('dblclick', completedTask)
+});
 
 resetButton.addEventListener('click', function() {
   taskList.innerHTML = ''
 });
 
-});
-
 removeButton.addEventListener('click', removeCompletedTask);
+
+removeSelectedButton.addEventListener('click', removeSelectedTask);
