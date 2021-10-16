@@ -40,19 +40,31 @@ function removeSelectedTask() {
   document.querySelector('.selected').remove();
 };
 
-function completedTask(e) {
-  if (e.target.className === 'completed') {
-    e.target.className = '';
-  } else {
-    e.target.className = 'completed';
-  }
+function completedTask(event) {
+  const dblClick = event.target.classList;
+
+  dblClick.toggle('completed');
 }
+
+function saveList() {
+  localStorage.clear();
+  const saveTasks = document.getElementsByClassName('itemsList');
+  console.log(saveTasks);
+  for (let index = 0; index < saveTasks.length; index += 1) {
+    const item = 'item';
+    const classes = 'class';
+    const i = index;
+    localStorage.setItem(item + i, saveTasks[index].innerHTML);
+    localStorage.setItem(classes + i, saveTasks[index].classList.value);
+  }
+};
 
 addButton.addEventListener('click', function() {
 
   const addList = document.createElement('li');
   addList.innerText = inputField.value;
   inputField.value = '';
+  addList.className = 'itemsList'
   taskList.appendChild(addList);
 
   addList.addEventListener('click', selectedItem)
@@ -61,9 +73,31 @@ addButton.addEventListener('click', function() {
 });
 
 resetButton.addEventListener('click', function() {
-  taskList.innerHTML = ''
+  taskList.innerHTML = '';
+
+  localStorage.clear();
 });
 
 removeButton.addEventListener('click', removeCompletedTask);
 
 removeSelectedButton.addEventListener('click', removeSelectedTask);
+
+saveTasksButton.addEventListener('click', saveList);
+
+window.onload = function() {
+  if (localStorage.length !== 0) {
+    for (let index = 0; index < (localStorage.length / 2); index += 1) {
+      const createLi = document.createElement('li');
+
+      taskList.appendChild(createLi);
+
+      const item = 'item';
+      const classes = 'class';
+      const i = index;
+
+      createLi.innerHTML = localStorage.getItem(item + i);
+
+      document.getElementsByTagName('li')[index].className = (localStorage.getItem(classes + i));
+    }
+  }
+};
