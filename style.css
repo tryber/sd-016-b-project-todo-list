@@ -1,0 +1,13 @@
+.itemsList {
+    font-style: italic;
+}
+
+.selected {
+    background-color: gray;
+    font-style: italic;
+}
+
+.completed {
+    font-style: italic;
+    text-decoration: line-through solid black;
+}; 
