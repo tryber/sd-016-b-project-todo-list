@@ -40,3 +40,18 @@ function completedTask() {
 }
 
 completedTask()
+
+function deleteTask() {
+
+    let deleteTaskButton = document.querySelector('#apaga-tudo');
+
+    deleteTaskButton.addEventListener('click', function(){
+        taskList.innerHTML = " ";
+        taskList = document.createElement('h2');
+        taskList.innerHTML = 'Lista de Tarefas';
+
+
+    })
+}
+
+deleteTask();
