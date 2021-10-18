@@ -26,3 +26,17 @@ newLi.addEventListener('click', function(event){
 }
 
 createTaskButton.addEventListener('click', createTask)
+
+function completedTask() {
+    taskList.addEventListener('dblclick', function(event){
+        if(event.target.classList.contains('completed')) {
+            return event.target.classList.remove('completed');
+
+        }
+
+        event.target.classList.add('completed');
+
+    })
+}
+
+completedTask()
