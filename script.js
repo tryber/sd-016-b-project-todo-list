@@ -84,3 +84,19 @@ function deleteSelectedTask() {
 }
 
 deleteSelectedTask();
+
+function saveTask() {
+
+let saveListButton = document.querySelector('#salvar-tarefas');
+taskList = document.querySelector('#lista-tarefas');
+let save = localStorage.getItem('list');
+taskList.innerHTML = save;
+
+saveListButton.addEventListener('click', function () {
+    taskList = document.querySelector('#lista-tarefas');
+    localStorage.setItem('list', taskList.innerHTML);
+})
+
+}
+
+saveTask();
