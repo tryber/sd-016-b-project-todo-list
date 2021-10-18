@@ -47,11 +47,25 @@ function deleteTask() {
 
     deleteTaskButton.addEventListener('click', function(){
         taskList.innerHTML = " ";
-        taskList = document.createElement('h2');
-        taskList.innerHTML = 'Lista de Tarefas';
+ 
 
 
     })
 }
 
 deleteTask();
+
+function deleteFinalizedTask() {
+    let finalizedButton = document.querySelector('#remover-finalizados');
+
+    finalizedButton.addEventListener('click', function(){
+        let completedClass = document.querySelectorAll('.completed');
+        for(let i=0; i < completedClass.length; i+=1) {
+            completedClass[i].remove()
+        }
+
+    })
+
+}
+
+deleteFinalizedTask();
