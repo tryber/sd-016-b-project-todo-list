@@ -69,3 +69,18 @@ function deleteFinalizedTask() {
 }
 
 deleteFinalizedTask();
+
+
+function deleteSelectedTask() {
+    let selectedButton = document.querySelector('#remover-selecionado');
+
+    selectedButton.addEventListener('click', function(){
+        let selectedClass = document.querySelector('.selected');
+        
+            selectedClass.remove()
+
+    })
+
+}
+
+deleteSelectedTask();
