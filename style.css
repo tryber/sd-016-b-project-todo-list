@@ -25,7 +25,7 @@ header h1 {
 }
 
 main {
-  background-color: rgb(255, 233, 237);
+  background-color: rgb(255 , 233 , 237);
   width: 100%;
   height: 1000px;
   background-image: url('https://casadaarte.vteximg.com.br/arquivos/ids/234334/SL-NB0035--3-.jpg?v=637152330422400000');
@@ -33,7 +33,7 @@ main {
   background-position-y: 50%;
 }
 
-#texto-tarefa, #criar-tarefa {
+#texto-tarefa , #criar-tarefa {
   margin-left: 100px;
   margin-top: 40px;
   height: 30px;
@@ -63,20 +63,20 @@ section {
   width: 40%;
 }
 
-#apaga-tudo, #remover-finalizados, #salvar-tarefas,
- #mover-cima, #mover-baixo, #remover-selecionado {
+#apaga-tudo , #remover-finalizados , #salvar-tarefas
+, #mover-cima , #mover-baixo , #remover-selecionado {
   display: block;
   margin-right: 100px;
   margin-top: 50px;
   height: 30px;
   width: 200px;
   border-radius: 10%;
-  color: rgb(153, 32, 32);
-  background-color: rgb(235, 217, 194);
+  color: rgb(153 , 32 , 32);
+  background-color: rgb(235 , 217 , 194);
   border-color: honeydew;
 }
 
-#apaga-tudo:hover , #remover-finalizados:hover , #salvar-tarefas:hover 
+#apaga-tudo:hover , #remover-finalizados:hover , #salvar-tarefas:hover
 , #mover-cima:hover , #mover-baixo:hover , #remover-selecionado:hover {
   display: block;
   margin-right: 100px;
@@ -85,7 +85,7 @@ section {
   width: 200px;
   border-radius: 10%;
   color: black;
-  background-color: rgb(235, 217, 194);
+  background-color: rgb(235 , 217 , 194);
   border-color: aqua;
 }
 
@@ -115,5 +115,5 @@ footer {
   margin-top: 80px;
   margin-left: 300px;
   font-size: 20px;
-  color: rgb(167, 27, 27);
+  color: rgb(167 , 27 , 27);
 }
