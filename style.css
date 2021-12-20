@@ -63,8 +63,8 @@ section {
   width: 40%;
 }
 
-#apaga-tudo , #remover-finalizados , #salvar-tarefas
- , #mover-cima , #mover-baixo , #remover-selecionado {
+#apaga-tudo , #remover-finalizados , #salvar-tarefas ,
+#mover-cima , #mover-baixo , #remover-selecionado {
   display: block;
   margin-right: 100px;
   margin-top: 50px;
@@ -76,8 +76,8 @@ section {
   border-color: honeydew;
 }
 
-#apaga-tudo:hover , #remover-finalizados:hover , #salvar-tarefas:hover
- , #mover-cima:hover , #mover-baixo:hover , #remover-selecionado:hover {
+#apaga-tudo:hover , #remover-finalizados:hover , #salvar-tarefas:hover ,
+#mover-cima:hover , #mover-baixo:hover , #remover-selecionado:hover {
   display: block;
   margin-right: 100px;
   margin-top: 60px;
