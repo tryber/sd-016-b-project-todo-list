@@ -1,26 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 header {
-  display: block;
-  border: solid black 1px;
-  padding: 40px;
-  background-color: blueviolet;
+  display: flex;
+  width: 100%;
+  height: 200px;
+  background-image: url('https://blog.wpensar.com.br/wp-content/uploads/2017/05/capa-rotina-escolar-.png');
+  background-size: 80%;
   color: azure;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+#funcionamento {
+  margin-top: 80px;
+  margin-right: 30px;
+  font-size: 20px;
 }
 
 main {
-  border: solid black 1px;
   background-color: rgb(255, 233, 237);
   width: 100%;
   height: 1000px;
+  background-image: url('https://casadaarte.vteximg.com.br/arquivos/ids/234334/SL-NB0035--3-.jpg?v=637152330422400000');
+  background-size: 100%;
+  background-position-y: 50%;
 }
 
-input {
-  height: 20px;
+#texto-tarefa, #criar-tarefa {
+  margin-left: 70px;
+  margin-top: 40px;
+  height: 30px;
   width: 200px;
-  background-color: plum;
+  border-radius: 5%;
+  color: blue;
+  border-color: aqua;
 }
 
-ol {
+button:hover {
+  background-color: aqua;
+}
+
+#container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#lista-tarefas {
+  margin-top: 100px;
+  margin-left: 120px;
+  padding-left: 20px;
+}
+
+section {
   display: block;
+  width: 40%;
+}
+
+#apaga-tudo, #remover-finalizados, #salvar-tarefas, #mover-cima, #mover-baixo, #remover-selecionado  {
+  display: block;
+  margin-right: 100px;
+  margin-top: 50px;
+  height: 30px;
+  width: 200px;
+  border-radius: 10%;
+  color: red;
+  background-color: rgb(235, 217, 194);
+  border-color: honeydew;
+}
+
+#apaga-tudo:hover, #remover-finalizados:hover, #salvar-tarefas:hover, #mover-cima:hover, #mover-baixo:hover, #remover-selecionado:hover  {
+  display: block;
+  margin-right: 100px;
+  margin-top: 50px;
+  height: 30px;
+  width: 200px;
+  border-radius: 10%;
+  color: black;
+  background-color: rgb(235, 217, 194);
+  border-color: aqua;
+}
+
+li {
+  margin-top: 0%;
+  width: 420px;
+  padding: 10px;
+  margin-left: 10px;
 }
 
 .completed {

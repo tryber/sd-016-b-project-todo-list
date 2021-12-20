@@ -1,3 +1,6 @@
+// constantes globais
+const colorRgb = 'rgb(128, 128, 128)';
+const list = document.getElementsByTagName('li');
 // requisito 8 e 9
 // A funcao abaixo risca o item da lista quando o item da lista é clicado duas vezes:
 function checkItemList(erasy) {
@@ -12,7 +15,7 @@ function checkItemList(erasy) {
 // requisito 9
 // funcao que adiciona o evento de double click nos elementos da lista:
 function eventDoubleClickList() {
-  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {  
+  for (let i = 0; i < document.querySelectorAll('li').length; i += 1) {
     document.querySelectorAll('li')[i].addEventListener('dblclick', checkItemList);
   }
 }
@@ -21,16 +24,16 @@ function eventDoubleClickList() {
 // funcao que muda a cor da li para cinza quando o evento click acontecer:
 function ChangeBackGroundColor(newItem) {
   const itemColorGrey = newItem.target; // fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/Event/target
-  for (let i = 0; i < document.getElementsByTagName('li').length; i += 1) {
-    document.getElementsByTagName('li')[i].style.removeProperty('background-color'); // fonte: https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/removeProperty
+  for (let i = 0; i < list.length; i += 1) {
+    list[i].style.removeProperty('background-color'); // fonte: https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/removeProperty
   }
-  itemColorGrey.style.backgroundColor = 'rgb(128, 128, 128)';
+  itemColorGrey.style.backgroundColor = colorRgb;
 }
 // requisito 7
 // funcao abaixo serve para ver "escutar" quando a li for clicada e torna a cor cinza:
 function eventClickList() {
-  for (let i = 0; i < document.getElementsByTagName('li').length; i += 1) {
-    document.getElementsByTagName('li')[i].addEventListener('click', ChangeBackGroundColor);
+  for (let i = 0; i < list.length; i += 1) {
+    list[i].addEventListener('click', ChangeBackGroundColor);
   }
 }
 
@@ -46,7 +49,7 @@ function insertElementLI() {
   toDoList.appendChild(createItem); // coloca a li dentro do ol como filho //fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild
   const input = document.getElementById('texto-tarefa'); // pega o input
   input.value = ''; // coloca valor vazio no input
-  createItem.style.display = 'block'; // colocar as li em lista
+  createItem.style.listStyle = 'decimal'; // lista li decimal
   eventClickList(); // chama a funcao para ver o click da lista de li
   eventDoubleClickList(); // chama a funcao para ver dois clicks seguidos em um item da li
 }
@@ -73,45 +76,45 @@ function removeFinished() {
 document.getElementById('remover-finalizados').addEventListener('click', removeFinished); // se clicar no botao remove os itens com check (riscados)
 
 // requisito 12
-// função que salva a lista de tarefas 
+// função que salva a lista de tarefas
 function saveList() {
-  //textoSave = document.getElementById('lista-tarefas').innerHTML; //FONTE: https://stackoverflow.com/questions/45525062/save-data-to-localstorage-and-display-it-as-innerhtml
-  localStorage.setItem('lista', document.getElementById('lista-tarefas').innerHTML); 
+  // textoSave = document.getElementById('lista-tarefas').innerHTML; //FONTE: https://stackoverflow.com/questions/45525062/save-data-to-localstorage-and-display-it-as-innerhtml
+  localStorage.setItem('lista', document.getElementById('lista-tarefas').innerHTML);
 }
- //https://javascript.tutorialink.com/is-it-possible-to-call-local-storage-inside-a-function-and-use-it-in-windows-onload-closed/
-window.onload = function () {  //fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/GlobalEventHandlers/onload
+// https://javascript.tutorialink.com/is-it-possible-to-call-local-storage-inside-a-function-and-use-it-in-windows-onload-closed/
+window.onload = function on() { // fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/GlobalEventHandlers/onload
   document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('lista');
 };
-document.getElementById('salvar-tarefas').addEventListener('click',saveList);
+document.getElementById('salvar-tarefas').addEventListener('click', saveList);
 
 // requisito 13
 // função mover item selecionado para cima ou para baixo.
 function moveItemUP() {
-  for (let i = 1; i < document.getElementsByTagName('li').length; i += 1 ) { 
-    if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-      document.querySelector('#lista-tarefas').insertBefore(document.getElementsByTagName('li')[i], document.getElementsByTagName('li')[i-1]);
+  for (let i = 1; i < list.length; i += 1) {
+    if (list[i].style.backgroundColor === colorRgb) {
+      toDoList.insertBefore(list[i], list[i - 1]);
     }
   }
 }
-document.getElementById('mover-cima').addEventListener('click',moveItemUP);
+document.getElementById('mover-cima').addEventListener('click', moveItemUP);
 
-function moveItemDOWN() { 
-  for (let i = 0; i < document.getElementsByTagName('li').length-1; i += 1 ) { 
-    if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-      document.querySelector('#lista-tarefas').insertBefore(document.getElementsByTagName('li')[i], document.getElementsByTagName('li')[i+2]);
-    break;
+function moveItemDOWN() {
+  for (let i = 0; i < document.getElementsByTagName('li').length - 1; i += 1) {
+    if (document.getElementsByTagName('li')[i].style.backgroundColor === colorRgb) {
+      toDoList.insertBefore(list[i], list[i + 2]);
+      break;
     }
   }
 }
-document.getElementById('mover-baixo').addEventListener('click',moveItemDOWN);
+document.getElementById('mover-baixo').addEventListener('click', moveItemDOWN);
 
-// requisito 14 
+// requisito 14
 // função remove item selecionado
 function removeItem() {
-  for (let i = 0; i < document.getElementsByTagName('li').length; i += 1) {
-    if (document.getElementsByTagName('li')[i].style.backgroundColor === 'rgb(128, 128, 128)') {
-      document.getElementsByTagName('li')[i].remove();
-  }
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].style.backgroundColor === colorRgb) {
+      list[i].remove();
+    }
   }
 }
 document.getElementById('remover-selecionado').addEventListener('click', removeItem);

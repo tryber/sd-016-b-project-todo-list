@@ -14,17 +14,24 @@
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
   <main>
-    <input id="texto-tarefa" type="text">  <!-- requisito 3 -->
+    <input id="texto-tarefa" type="text" placeholder="tarefa">  <!-- requisito 3 -->
     <button id="criar-tarefa">Criar uma nova tarefa</button>  <!-- requisito 5 -->
-    <ol id="lista-tarefas">  <!-- requisito 4 -->
-    </ol>
-    <button id="apaga-tudo">Limpar Lista</button>
-    <button id="remover-finalizados">Remover itens finalizados</button>
-    <button id="salvar-tarefas">Salvar lista</button>
-    <button id="mover-cima">UP List</button>
-    <button id="mover-baixo">DOWN List</button>
-    <button id="remover-selecionado">Remover</button>
+    <div id="container">
+      <ol id="lista-tarefas">  <!-- requisito 4 -->
+      </ol>
+      <section>
+        <button id="apaga-tudo">Limpar Lista</button>
+        <button id="remover-finalizados">Remover itens finalizados</button>
+        <button id="salvar-tarefas">Salvar lista</button>
+        <button id="mover-cima">UP List</button>
+        <button id="mover-baixo">DOWN List</button>
+        <button id="remover-selecionado">Remover</button>
+      </section>
+    </div>
   </main>
+  <footer>
+    <p>Projeto toDo list da Trybe | Izabela Hammerschlag, 2021 | feito com: HTML, CSS e Javascript</p>
+  </footer>
 <script src="script.js"></script>    
 </body>
 </html>
