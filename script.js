@@ -8,7 +8,7 @@ const delSelected = document.getElementById('remover-selecionado');
 const moveDownBtn = document.getElementById('mover-baixo');
 const moveUpBtn = document.getElementById('mover-cima');
 const liAmmount = orderedList.children;
-let select = document.getElementsByClassName('background-li');
+const select = document.getElementsByClassName('background-li');
 
 function liChangeColor(event) {
   const background = 'background-li';
@@ -44,7 +44,7 @@ function addListenerDoubleClickLi() {
   }
 }
 
-addButton.addEventListener('click', function () {
+addButton.addEventListener('click', () => {
   const inputTextValue = inputText.value;
   const createLi = document.createElement('li');
   createLi.innerText = inputTextValue;
@@ -88,24 +88,20 @@ saveListBtn.addEventListener('click', () => {
 });
 
 delSelected.addEventListener('click', () => {
-  if(select.length === 1) {
+  if (select.length === 1) {
     select[0].remove();
   }
 });
 
 moveDownBtn.addEventListener('click', () => {
-  if (select[0] !== undefined) {
-    if (select[0].nextElementSibling !== null){
-      orderedList.insertBefore(select[0].nextElementSibling, select[0]);
-    }
+  if (select[0] !== undefined && select[0].nextElementSibling !== null) {
+    orderedList.insertBefore(select[0].nextElementSibling, select[0]);
   }
 });
 
 moveUpBtn.addEventListener('click', () => {
-  if (select[0] !== undefined) {
-    if (select[0].previousElementSibling !== null){
-      orderedList.insertBefore(select[0], select[0].previousElementSibling);
-    }
+  if (select[0] !== undefined && select[0].previousElementSibling !== null) {
+    orderedList.insertBefore(select[0], select[0].previousElementSibling);
   }
 });
 
