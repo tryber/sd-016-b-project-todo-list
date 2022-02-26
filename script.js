@@ -66,7 +66,7 @@ function criaBotaoApagar (){
 
 criaBotaoApagar()
 
-let botaoApagaTudo = document.getElementById('apaga-tudo');
+let botaoApagaTudo = document.getElementById('Apaga-tudo');
 botaoApagaTudo.addEventListener('click', apagaLista)
 
 function apagaLista(event){
@@ -81,7 +81,7 @@ function apagaLista(event){
 
 function criaBotaoApagarFinalizados (){
 let botaoApagaFinalizados = document.createElement('button');
-botaoApagaFinalizados.innerText = "apaga tarefas finalizadas"
+botaoApagaFinalizados.innerText = "Apaga tarefas finalizadas"
 botaoApagaFinalizados.id= "remover-finalizados"
 container.appendChild(botaoApagaFinalizados)
 }
