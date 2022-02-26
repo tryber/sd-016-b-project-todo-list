@@ -1,0 +1,75 @@
+body {
+    background-image: radial-gradient(circle,#dbc2dd 0%, #d782df 0%, #83a5ac 100%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-general {
+  display: flex;
+}
+
+img {
+  width: 35vw;
+  text-align: right;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+h1, h3 {
+  margin: 20px;
+  color:aliceblue
+}
+
+#texto-tarefa{
+    display: inline-block;
+}
+
+#criar-tarefa{
+    display: inline-block;
+    margin-left: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
+
+.bar-buttons {
+  width: 3000px;
+}
+
+input, li {
+    margin-left: 50px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.linha-de-tarefas{
+ background-color: white;
+}
+
+.selecionada{
+    background-color: rgb(128, 128, 128);
+}
+
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#apaga-tudo{
+    margin-left: 52px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
+
+#remover-finalizados{
+    margin-left: 54px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
